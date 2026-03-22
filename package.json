@@ -1,24 +1,39 @@
 {
-  "name": "chai-tailwind",
+  "name": "chai-tailwindt89",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "main.js",
+  "files": [
+    "src/",
+    "public/",
+    "dist/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup main.js --file dist/chai-tailwind.min.js --format iife --name ChaiTailwind"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KARDT89/chai-tailwind.git"
+    "url": "git+https://github.com/KARDT89/chai-tailwind.git",
+    "homepage": "https://kardt89.github.io/chai-tailwind/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "css",
+    "tailwind",
+    "utility-first",
+    "vanilla-js",
+    "zero-dependency"
+  ],
+  "author": "Tamal Sarkar (KARDT89)",
+  "license": "MIT",
   "type": "module",
   "bugs": {
     "url": "https://github.com/KARDT89/chai-tailwind/issues"
   },
   "homepage": "https://github.com/KARDT89/chai-tailwind#readme",
   "devDependencies": {
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "rollup": "^4.60.0"
   }
 }
