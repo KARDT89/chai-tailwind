@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/KARDT89/chai-tailwind/issues"
   },
-  "homepage": "https://github.com/KARDT89/chai-tailwind#readme"
+  "homepage": "https://github.com/KARDT89/chai-tailwind#readme",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
 }

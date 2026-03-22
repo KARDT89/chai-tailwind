@@ -1,94 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>☕ ChaiTailwind</title>
-  <style>
-    body { font-family: sans-serif; background: #0f0f0f; color: #f5e6d0; padding: 40px; }
-    h1   { font-size: 2rem; margin-bottom: 8px; }
-    h2   { font-size: 1rem; opacity: 0.5; font-weight: normal; margin-bottom: 40px; }
-    section { margin-bottom: 48px; }
-    section > p { font-size: 0.75rem; opacity: 0.4; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
-    .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-  </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>☕ ChaiTailwind</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                background: #0f0f0f;
+                color: #f5e6d0;
+                padding: 40px;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+            h2 {
+                font-size: 1rem;
+                opacity: 0.5;
+                font-weight: normal;
+                margin-bottom: 40px;
+            }
+            section {
+                margin-bottom: 48px;
+            }
+            section > p {
+                font-size: 0.75rem;
+                opacity: 0.4;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 16px;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>☕ ChaiTailwind - Made with ❤️ by Tamal</h1>
+        <h2>
+            Every element below is styled using only
+            <code>chai-*</code> classes.
+        </h2>
 
-  <h1>☕ ChaiTailwind</h1>
-  <h2>Every element below is styled using only <code>chai-*</code> classes.</h2>
+        <!-- Spacing -->
+        <section>
+            <p>Spacing — chai-p-*</p>
+            <div class="row">
+                <div class="chai-bg-blue-500 chai-text-white chai-p-1">p-1</div>
+                <div class="chai-bg-blue-500 chai-text-white chai-p-2">p-2</div>
+                <div class="chai-bg-blue-500 chai-text-white chai-p-4">p-4</div>
+                <div class="chai-bg-blue-500 chai-text-white chai-p-6">p-6</div>
+                <div
+                    class="chai-bg-blue-500 chai-text-white chai-px-6 chai-py-2"
+                >
+                    px-6 py-2
+                </div>
+            </div>
+        </section>
 
-  <!-- Spacing -->
-  <section>
-    <p>Spacing — chai-p-*</p>
-    <div class="row">
-      <div class="chai-bg-blue-500 chai-text-white chai-p-1">p-1</div>
-      <div class="chai-bg-blue-500 chai-text-white chai-p-2">p-2</div>
-      <div class="chai-bg-blue-500 chai-text-white chai-p-4">p-4</div>
-      <div class="chai-bg-blue-500 chai-text-white chai-p-6">p-6</div>
-      <div class="chai-bg-blue-500 chai-text-white chai-px-6 chai-py-2">px-6 py-2</div>
-    </div>
-  </section>
+        <!-- Colors -->
+        <section>
+            <p>Background Colors — chai-bg-*</p>
+            <div class="row">
+                <div
+                    class="chai-bg-red-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    red-500
+                </div>
+                <div
+                    class="chai-bg-green-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    green-500
+                </div>
+                <div
+                    class="chai-bg-blue-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    blue-500
+                </div>
+                <div
+                    class="chai-bg-yellow-500 chai-text-black chai-p-3 chai-rounded"
+                >
+                    yellow-500
+                </div>
+                <div
+                    class="chai-bg-purple-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    purple-500
+                </div>
+                <div
+                    class="chai-bg-orange-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    orange-500
+                </div>
+            </div>
+        </section>
 
-  <!-- Colors -->
-  <section>
-    <p>Background Colors — chai-bg-*</p>
-    <div class="row">
-      <div class="chai-bg-red-500    chai-text-white chai-p-3 chai-rounded">red-500</div>
-      <div class="chai-bg-green-500  chai-text-white chai-p-3 chai-rounded">green-500</div>
-      <div class="chai-bg-blue-500   chai-text-white chai-p-3 chai-rounded">blue-500</div>
-      <div class="chai-bg-yellow-500 chai-text-black chai-p-3 chai-rounded">yellow-500</div>
-      <div class="chai-bg-purple-500 chai-text-white chai-p-3 chai-rounded">purple-500</div>
-      <div class="chai-bg-orange-500 chai-text-white chai-p-3 chai-rounded">orange-500</div>
-    </div>
-  </section>
+        <!-- Typography -->
+        <section>
+            <p>Typography — chai-text-* chai-font-*</p>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+                <div class="chai-text-sm">chai-text-sm — small text</div>
+                <div class="chai-text-xl chai-font-semibold">
+                    chai-text-xl chai-font-semibold
+                </div>
+                <div class="chai-text-3xl chai-font-bold">
+                    chai-text-3xl chai-font-bold
+                </div>
+                <div class="chai-text-blue-500 chai-text-xl">
+                    chai-text-blue-500
+                </div>
+                <div
+                    class="chai-uppercase chai-text-sm chai-font-bold"
+                    style="opacity: 0.5"
+                >
+                    chai-uppercase chai-font-bold
+                </div>
+            </div>
+        </section>
 
-  <!-- Typography -->
-  <section>
-    <p>Typography — chai-text-* chai-font-*</p>
-    <div style="display:flex; flex-direction:column; gap:8px;">
-      <div class="chai-text-sm">chai-text-sm — small text</div>
-      <div class="chai-text-xl chai-font-semibold">chai-text-xl chai-font-semibold</div>
-      <div class="chai-text-3xl chai-font-bold">chai-text-3xl chai-font-bold</div>
-      <div class="chai-text-blue-500 chai-text-xl">chai-text-blue-500</div>
-      <div class="chai-uppercase chai-text-sm chai-font-bold" style="opacity:0.5;">chai-uppercase chai-font-bold</div>
-    </div>
-  </section>
+        <!-- Flexbox -->
+        <section>
+            <p>Flexbox — chai-flex chai-items-* chai-justify-*</p>
+            <div
+                class="chai-flex chai-items-center chai-justify-between chai-bg-gray-700 chai-p-4 chai-rounded-lg"
+            >
+                <div
+                    class="chai-bg-blue-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    Left
+                </div>
+                <div
+                    class="chai-bg-green-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    Center area
+                </div>
+                <div
+                    class="chai-bg-red-500 chai-text-white chai-p-3 chai-rounded"
+                >
+                    Right
+                </div>
+            </div>
+        </section>
 
-  <!-- Flexbox -->
-  <section>
-    <p>Flexbox — chai-flex chai-items-* chai-justify-*</p>
-    <div class="chai-flex chai-items-center chai-justify-between chai-bg-gray-700 chai-p-4 chai-rounded-lg">
-      <div class="chai-bg-blue-500 chai-text-white chai-p-3 chai-rounded">Left</div>
-      <div class="chai-bg-green-500 chai-text-white chai-p-3 chai-rounded">Center area</div>
-      <div class="chai-bg-red-500 chai-text-white chai-p-3 chai-rounded">Right</div>
-    </div>
-  </section>
+        <!-- Grid -->
+        <section>
+            <p>Grid — chai-cols-* chai-col-span-*</p>
+            <div class="chai-cols-3 chai-gap-3" style="display: grid">
+                <div
+                    class="chai-col-span-2 chai-bg-purple-500 chai-text-white chai-p-4 chai-rounded"
+                >
+                    col-span-2
+                </div>
+                <div
+                    class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center"
+                >
+                    col-1
+                </div>
+                <div
+                    class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center"
+                >
+                    col-1
+                </div>
+                <div
+                    class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center"
+                >
+                    col-1
+                </div>
+                <div
+                    class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center"
+                >
+                    col-1
+                </div>
+            </div>
+        </section>
 
-  <!-- Grid -->
-  <section>
-    <p>Grid — chai-cols-* chai-col-span-*</p>
-    <div class="chai-cols-3 chai-gap-3" style="display:grid;">
-      <div class="chai-col-span-2 chai-bg-purple-500 chai-text-white chai-p-4 chai-rounded">col-span-2</div>
-      <div class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center">col-1</div>
-      <div class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center">col-1</div>
-      <div class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center">col-1</div>
-      <div class="chai-bg-gray-500 chai-text-white chai-p-4 chai-rounded chai-text-center">col-1</div>
-    </div>
-  </section>
+        <!-- Borders & Shadows -->
+        <section>
+            <p>Borders & Shadows</p>
+            <div class="row">
+                <div
+                    class="chai-border chai-border-blue-500 chai-text-white chai-p-4 chai-rounded"
+                >
+                    chai-border
+                </div>
+                <div
+                    class="chai-bg-white chai-text-black chai-p-4 chai-rounded-xl chai-shadow-lg"
+                >
+                    chai-shadow-lg
+                </div>
+                <div
+                    class="chai-bg-white chai-text-black chai-p-4 chai-rounded-full chai-shadow-md"
+                >
+                    chai-rounded-full
+                </div>
+            </div>
+        </section>
 
-  <!-- Borders & Shadows -->
-  <section>
-    <p>Borders & Shadows</p>
-    <div class="row">
-      <div class="chai-border chai-border-blue-500 chai-text-white chai-p-4 chai-rounded">chai-border</div>
-      <div class="chai-bg-white chai-text-black chai-p-4 chai-rounded-xl chai-shadow-lg">chai-shadow-lg</div>
-      <div class="chai-bg-white chai-text-black chai-p-4 chai-rounded-full chai-shadow-md">chai-rounded-full</div>
-    </div>
-  </section>
-
-  <!-- type="module" tells the browser to support import/export -->
-  <script type="module" src="main.js"></script>
-
-</body>
+        <!-- type="module" tells the browser to support import/export -->
+        <script type="module" src="main.js"></script>
+    </body>
 </html>
