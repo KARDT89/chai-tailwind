@@ -1,4 +1,4 @@
-import { scanDOM, watchDOM } from "./src/engine.js";
+import { scanDOM, watchDOM } from "./engine.js";
 
 function init() {
     scanDOM(); // style everything already in the DOM
