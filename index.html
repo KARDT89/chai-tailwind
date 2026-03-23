@@ -1,706 +1,2163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChaiTailwind — Utility-First CSS Engine</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo f1">☕ Tailwin <span class="slope-font">DT89</span></div>
-  <div class="nav-links f2">
-    <a href="#demo">Demo</a>
-    <a href="#how">How it works</a>
-    <a href="#install">Install</a>
-  </div>
-  <a class="nav-cta f3" href="https://github.com/KARDT89/chai-tailwind" target="_blank">GitHub →</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div>
-      <p class="hero-eyebrow f1">Web Dev Cohort 2026 · Assignment Project</p>
-      <h1 class="hero-title f2">
-        Chai<br>
-        <span class="outline">Tail</span><br>
-        Win <span class="slope-font hero-dt89">DT89</span>
-      </h1>
-      <p class="hero-desc f3">
-        A zero-dependency, utility-first CSS engine in vanilla JS.
-        Write <code>chai-p-4</code>, <code>chai-bg-blue-500</code>, <code>chai-flex</code> —
-        the engine scans your DOM and applies inline styles automatically.
-        No build step. No config. No npm.
-      </p>
-    </div>
-    <div class="f4">
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">150+</span><span class="stat-label">Utilities</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">Dependencies</span></div>
-        <div class="stat"><span class="stat-num">~5kb</span><span class="stat-label">Size</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Files</span></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaiTailwind — Utility-First CSS Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo f1">
+        ☕ Tailwin <span class="slope-font">DT89</span>
       </div>
-    </div>
-  </div>
+      <div class="nav-links f2">
+        <a href="#demo">Demo</a>
+        <a href="#how">How it works</a>
+        <a href="#install">Install</a>
+      </div>
+      <a
+        class="nav-cta f3"
+        href="https://github.com/KARDT89/chai-tailwind"
+        target="_blank"
+        >GitHub →</a
+      >
+    </nav>
 
-  <div class="hero-right f3">
-    <div class="terminal-bar">
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <span class="terminal-name">index.html</span>
-    </div>
-    <div class="code-block">
-      <div><span class="ln">1</span><span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="val">"module"</span> <span class="attr">src</span>=<span class="val">"main.js"</span><span class="tag">&gt;&lt;/script&gt;</span></div>
-      <div><span class="ln">2</span></div>
-      <div><span class="ln">3</span><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"<span class="hl">chai-flex</span> <span class="hl">chai-items-center</span> <span class="hl">chai-gap-4</span>"</span><span class="tag">&gt;</span></div>
-      <div><span class="ln">4</span>&nbsp;&nbsp;<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"<span class="hl">chai-bg-blue-500</span></span></div>
-      <div><span class="ln">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val"><span class="hl">chai-text-white</span></span></div>
-      <div><span class="ln">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val"><span class="hl">chai-p-6</span></span></div>
-      <div><span class="ln">7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val"><span class="hl">chai-rounded-xl</span>"</span><span class="tag">&gt;</span></div>
-      <div><span class="ln">8</span>&nbsp;&nbsp;&nbsp;&nbsp;Hello, ChaiTailwind <span class="cursor"></span></div>
-      <div><span class="ln">9</span>&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span></div>
-      <div><span class="ln">10</span><span class="tag">&lt;/div&gt;</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- LIVE DEMO -->
-<section id="demo">
-  <div class="section-header">
-    <span class="sec-num">01</span>
-    <h2 class="sec-title">Hover any utility — see it live</h2>
-  </div>
-  <div class="demo-grid">
-
-    <div class="utility-list">
-
-      <!-- ── Spacing ─────────────────────────────────────────────────────── -->
-      <div class="group-label">Spacing — Padding</div>
-      <div class="util-row" data-type="spacing" data-px="4"   data-axis="all" data-css="padding: 4px"><span class="util-name">chai-p-1</span><span class="util-val">4px</span></div>
-      <div class="util-row" data-type="spacing" data-px="8"   data-axis="all" data-css="padding: 8px"><span class="util-name">chai-p-2</span><span class="util-val">8px</span></div>
-      <div class="util-row" data-type="spacing" data-px="16"  data-axis="all" data-css="padding: 16px"><span class="util-name">chai-p-4</span><span class="util-val">16px</span></div>
-      <div class="util-row" data-type="spacing" data-px="24"  data-axis="all" data-css="padding: 24px"><span class="util-name">chai-p-6</span><span class="util-val">24px</span></div>
-      <div class="util-row" data-type="spacing" data-px="32"  data-axis="all" data-css="padding: 32px"><span class="util-name">chai-p-8</span><span class="util-val">32px</span></div>
-      <div class="util-row" data-type="spacing" data-px="48"  data-axis="all" data-css="padding: 48px"><span class="util-name">chai-p-12</span><span class="util-val">48px</span></div>
-      <div class="util-row" data-type="spacing" data-px="32"  data-axis="x"   data-css="padding-left: 32px; padding-right: 32px"><span class="util-name">chai-px-8</span><span class="util-val">horizontal</span></div>
-      <div class="util-row" data-type="spacing" data-px="32"  data-axis="y"   data-css="padding-top: 32px; padding-bottom: 32px"><span class="util-name">chai-py-8</span><span class="util-val">vertical</span></div>
-      <div class="util-row" data-type="spacing" data-px="16"  data-axis="t"   data-css="padding-top: 16px"><span class="util-name">chai-pt-4</span><span class="util-val">top</span></div>
-      <div class="util-row" data-type="spacing" data-px="16"  data-axis="b"   data-css="padding-bottom: 16px"><span class="util-name">chai-pb-4</span><span class="util-val">bottom</span></div>
-      <div class="util-row" data-type="spacing" data-px="16"  data-axis="l"   data-css="padding-left: 16px"><span class="util-name">chai-pl-4</span><span class="util-val">left</span></div>
-      <div class="util-row" data-type="spacing" data-px="16"  data-axis="r"   data-css="padding-right: 16px"><span class="util-name">chai-pr-4</span><span class="util-val">right</span></div>
-
-      <div class="group-label">Spacing — Margin</div>
-      <div class="util-row" data-type="margin" data-px="8"   data-axis="all" data-css="margin: 8px"><span class="util-name">chai-m-2</span><span class="util-val">8px</span></div>
-      <div class="util-row" data-type="margin" data-px="16"  data-axis="all" data-css="margin: 16px"><span class="util-name">chai-m-4</span><span class="util-val">16px</span></div>
-      <div class="util-row" data-type="margin" data-px="32"  data-axis="x"   data-css="margin-left: 32px; margin-right: 32px"><span class="util-name">chai-mx-8</span><span class="util-val">horizontal</span></div>
-      <div class="util-row" data-type="margin" data-px="32"  data-axis="y"   data-css="margin-top: 32px; margin-bottom: 32px"><span class="util-name">chai-my-8</span><span class="util-val">vertical</span></div>
-      <div class="util-row" data-type="margin" data-px="16"  data-axis="t"   data-css="margin-top: 16px"><span class="util-name">chai-mt-4</span><span class="util-val">top</span></div>
-      <div class="util-row" data-type="margin" data-px="16"  data-axis="b"   data-css="margin-bottom: 16px"><span class="util-name">chai-mb-4</span><span class="util-val">bottom</span></div>
-
-      <!-- ── Background ──────────────────────────────────────────────────── -->
-      <div class="group-label">Background</div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#ef4444","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #ef4444"><span class="util-name">chai-bg-red-500</span><span class="util-val">#ef4444</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#fee2e2","padding":"20px 32px","color":"#b91c1c","borderRadius":"6px"}' data-css="background-color: #fee2e2"><span class="util-name">chai-bg-red-100</span><span class="util-val">#fee2e2</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#3b82f6","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #3b82f6"><span class="util-name">chai-bg-blue-500</span><span class="util-val">#3b82f6</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#dbeafe","padding":"20px 32px","color":"#1d4ed8","borderRadius":"6px"}' data-css="background-color: #dbeafe"><span class="util-name">chai-bg-blue-100</span><span class="util-val">#dbeafe</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#22c55e","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #22c55e"><span class="util-name">chai-bg-green-500</span><span class="util-val">#22c55e</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#a855f7","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #a855f7"><span class="util-name">chai-bg-purple-500</span><span class="util-val">#a855f7</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#eab308","padding":"20px 32px","color":"#000","borderRadius":"6px"}' data-css="background-color: #eab308"><span class="util-name">chai-bg-yellow-500</span><span class="util-val">#eab308</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#f97316","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #f97316"><span class="util-name">chai-bg-orange-500</span><span class="util-val">#f97316</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#14b8a6","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #14b8a6"><span class="util-name">chai-bg-teal-500</span><span class="util-val">#14b8a6</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#06b6d4","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #06b6d4"><span class="util-name">chai-bg-cyan-500</span><span class="util-val">#06b6d4</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#6366f1","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #6366f1"><span class="util-name">chai-bg-indigo-500</span><span class="util-val">#6366f1</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#f43f5e","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #f43f5e"><span class="util-name">chai-bg-rose-500</span><span class="util-val">#f43f5e</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#f59e0b","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #f59e0b"><span class="util-name">chai-bg-amber-500</span><span class="util-val">#f59e0b</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#84cc16","padding":"20px 32px","color":"#fff","borderRadius":"6px"}' data-css="background-color: #84cc16"><span class="util-name">chai-bg-lime-500</span><span class="util-val">#84cc16</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#111827","padding":"20px 32px","color":"#f3f4f6","borderRadius":"6px"}' data-css="background-color: #111827"><span class="util-name">chai-bg-gray-900</span><span class="util-val">#111827</span></div>
-      <div class="util-row" data-type="style" data-styles='{"backgroundColor":"#f3f4f6","padding":"20px 32px","color":"#111827","borderRadius":"6px"}' data-css="background-color: #f3f4f6"><span class="util-name">chai-bg-gray-100</span><span class="util-val">#f3f4f6</span></div>
-
-      <!-- ── Typography ──────────────────────────────────────────────────── -->
-      <div class="group-label">Typography — Size</div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"0.625rem"}' data-css="font-size: 0.625rem" data-text="The quick brown fox"><span class="util-name">chai-text-2xs</span><span class="util-val">0.625rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"0.75rem"}' data-css="font-size: 0.75rem" data-text="The quick brown fox"><span class="util-name">chai-text-xs</span><span class="util-val">0.75rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"0.875rem"}' data-css="font-size: 0.875rem" data-text="The quick brown fox"><span class="util-name">chai-text-sm</span><span class="util-val">0.875rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"1rem"}' data-css="font-size: 1rem" data-text="The quick brown fox"><span class="util-name">chai-text-base</span><span class="util-val">1rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"1.125rem"}' data-css="font-size: 1.125rem" data-text="The quick brown fox"><span class="util-name">chai-text-lg</span><span class="util-val">1.125rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"1.25rem"}' data-css="font-size: 1.25rem" data-text="The quick brown fox"><span class="util-name">chai-text-xl</span><span class="util-val">1.25rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"1.5rem"}' data-css="font-size: 1.5rem" data-text="The quick brown fox"><span class="util-name">chai-text-2xl</span><span class="util-val">1.5rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"1.875rem"}' data-css="font-size: 1.875rem" data-text="The quick brown fox"><span class="util-name">chai-text-3xl</span><span class="util-val">1.875rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"2.25rem"}' data-css="font-size: 2.25rem" data-text="Display"><span class="util-name">chai-text-4xl</span><span class="util-val">2.25rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"3rem"}' data-css="font-size: 3rem" data-text="Display"><span class="util-name">chai-text-5xl</span><span class="util-val">3rem</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontSize":"3.75rem"}' data-css="font-size: 3.75rem" data-text="Big"><span class="util-name">chai-text-6xl</span><span class="util-val">3.75rem</span></div>
-
-      <div class="group-label">Typography — Weight</div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"100","fontSize":"1.1rem"}' data-css="font-weight: 100" data-text="Thin text"><span class="util-name">chai-font-thin</span><span class="util-val">100</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"200","fontSize":"1.1rem"}' data-css="font-weight: 200" data-text="Extralight text"><span class="util-name">chai-font-extralight</span><span class="util-val">200</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"300","fontSize":"1.1rem"}' data-css="font-weight: 300" data-text="Light text"><span class="util-name">chai-font-light</span><span class="util-val">300</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"400","fontSize":"1.1rem"}' data-css="font-weight: 400" data-text="Normal text"><span class="util-name">chai-font-normal</span><span class="util-val">400</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"500","fontSize":"1.1rem"}' data-css="font-weight: 500" data-text="Medium text"><span class="util-name">chai-font-medium</span><span class="util-val">500</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"600","fontSize":"1.1rem"}' data-css="font-weight: 600" data-text="Semibold text"><span class="util-name">chai-font-semibold</span><span class="util-val">600</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"700","fontSize":"1.1rem"}' data-css="font-weight: 700" data-text="Bold text"><span class="util-name">chai-font-bold</span><span class="util-val">700</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"800","fontSize":"1.1rem"}' data-css="font-weight: 800" data-text="Extrabold text"><span class="util-name">chai-font-extrabold</span><span class="util-val">800</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontWeight":"900","fontSize":"1.1rem"}' data-css="font-weight: 900" data-text="Black text"><span class="util-name">chai-font-black</span><span class="util-val">900</span></div>
-
-      <div class="group-label">Typography — Line Height</div>
-      <div class="util-row" data-type="style" data-styles='{"lineHeight":"1","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}' data-css="line-height: 1" data-text="The quick brown fox jumps"><span class="util-name">chai-leading-none</span><span class="util-val">1</span></div>
-      <div class="util-row" data-type="style" data-styles='{"lineHeight":"1.25","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}' data-css="line-height: 1.25" data-text="The quick brown fox jumps"><span class="util-name">chai-leading-tight</span><span class="util-val">1.25</span></div>
-      <div class="util-row" data-type="style" data-styles='{"lineHeight":"1.5","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}' data-css="line-height: 1.5" data-text="The quick brown fox jumps"><span class="util-name">chai-leading-normal</span><span class="util-val">1.5</span></div>
-      <div class="util-row" data-type="style" data-styles='{"lineHeight":"1.625","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}' data-css="line-height: 1.625" data-text="The quick brown fox jumps"><span class="util-name">chai-leading-relaxed</span><span class="util-val">1.625</span></div>
-      <div class="util-row" data-type="style" data-styles='{"lineHeight":"2","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}' data-css="line-height: 2" data-text="The quick brown fox jumps"><span class="util-name">chai-leading-loose</span><span class="util-val">2</span></div>
-
-      <div class="group-label">Typography — Letter Spacing</div>
-      <div class="util-row" data-type="style" data-styles='{"letterSpacing":"-0.05em","fontSize":"1rem"}' data-css="letter-spacing: -0.05em" data-text="CHAI TAILWIND"><span class="util-name">chai-tracking-tighter</span><span class="util-val">-0.05em</span></div>
-      <div class="util-row" data-type="style" data-styles='{"letterSpacing":"0em","fontSize":"1rem"}' data-css="letter-spacing: 0em" data-text="CHAI TAILWIND"><span class="util-name">chai-tracking-normal</span><span class="util-val">0em</span></div>
-      <div class="util-row" data-type="style" data-styles='{"letterSpacing":"0.05em","fontSize":"1rem"}' data-css="letter-spacing: 0.05em" data-text="CHAI TAILWIND"><span class="util-name">chai-tracking-wide</span><span class="util-val">0.05em</span></div>
-      <div class="util-row" data-type="style" data-styles='{"letterSpacing":"0.1em","fontSize":"1rem"}' data-css="letter-spacing: 0.1em" data-text="CHAI TAILWIND"><span class="util-name">chai-tracking-widest</span><span class="util-val">0.1em</span></div>
-
-      <div class="group-label">Typography — Decoration &amp; Transform</div>
-      <div class="util-row" data-type="style" data-styles='{"textTransform":"uppercase","letterSpacing":"0.14em"}' data-css="text-transform: uppercase" data-text="chai tailwind"><span class="util-name">chai-uppercase</span><span class="util-val">uppercase</span></div>
-      <div class="util-row" data-type="style" data-styles='{"textTransform":"lowercase"}' data-css="text-transform: lowercase" data-text="CHAI TAILWIND"><span class="util-name">chai-lowercase</span><span class="util-val">lowercase</span></div>
-      <div class="util-row" data-type="style" data-styles='{"textTransform":"capitalize"}' data-css="text-transform: capitalize" data-text="chai tailwind"><span class="util-name">chai-capitalize</span><span class="util-val">capitalize</span></div>
-      <div class="util-row" data-type="style" data-styles='{"textDecoration":"underline"}' data-css="text-decoration: underline" data-text="underlined text"><span class="util-name">chai-underline</span><span class="util-val">underline</span></div>
-      <div class="util-row" data-type="style" data-styles='{"textDecoration":"line-through"}' data-css="text-decoration: line-through" data-text="line-through text"><span class="util-name">chai-line-through</span><span class="util-val">line-through</span></div>
-      <div class="util-row" data-type="style" data-styles='{"fontStyle":"italic","fontSize":"1rem"}' data-css="font-style: italic" data-text="Italic text"><span class="util-name">chai-italic</span><span class="util-val">italic</span></div>
-      <div class="util-row" data-type="style" data-styles='{"overflow":"hidden","textOverflow":"ellipsis","whiteSpace":"nowrap","width":"160px"}' data-css="overflow: hidden; text-overflow: ellipsis; white-space: nowrap" data-text="This text is way too long to fit"><span class="util-name">chai-truncate</span><span class="util-val">ellipsis</span></div>
-
-      <div class="group-label">Typography — Color</div>
-      <div class="util-row" data-type="style" data-styles='{"color":"#ef4444","fontSize":"1rem"}' data-css="color: #ef4444" data-text="Red text"><span class="util-name">chai-text-red-500</span><span class="util-val">#ef4444</span></div>
-      <div class="util-row" data-type="style" data-styles='{"color":"#3b82f6","fontSize":"1rem"}' data-css="color: #3b82f6" data-text="Blue text"><span class="util-name">chai-text-blue-500</span><span class="util-val">#3b82f6</span></div>
-      <div class="util-row" data-type="style" data-styles='{"color":"#22c55e","fontSize":"1rem"}' data-css="color: #22c55e" data-text="Green text"><span class="util-name">chai-text-green-500</span><span class="util-val">#22c55e</span></div>
-      <div class="util-row" data-type="style" data-styles='{"color":"#6b7280","fontSize":"1rem"}' data-css="color: #6b7280" data-text="Gray text"><span class="util-name">chai-text-gray-500</span><span class="util-val">#6b7280</span></div>
-
-      <!-- ── Border & Radius ─────────────────────────────────────────────── -->
-      <div class="group-label">Border</div>
-      <div class="util-row" data-type="style" data-styles='{"border":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border: 1px solid" data-text="bordered box"><span class="util-name">chai-border</span><span class="util-val">1px solid</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"2px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-width: 2px" data-text="2px border"><span class="util-name">chai-border-2</span><span class="util-val">2px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"4px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-width: 4px" data-text="4px border"><span class="util-name">chai-border-4</span><span class="util-val">4px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"8px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-width: 8px" data-text="8px border"><span class="util-name">chai-border-8</span><span class="util-val">8px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderTop":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-top: 1px solid" data-text="top border"><span class="util-name">chai-border-t</span><span class="util-val">top</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderBottom":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-bottom: 1px solid" data-text="bottom border"><span class="util-name">chai-border-b</span><span class="util-val">bottom</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderLeft":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-left: 1px solid" data-text="left border"><span class="util-name">chai-border-l</span><span class="util-val">left</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRight":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-right: 1px solid" data-text="right border"><span class="util-name">chai-border-r</span><span class="util-val">right</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"1.5px solid #3b82f6","padding":"16px 28px","color":"#3b82f6"}' data-css="border-color: #3b82f6" data-text="blue border"><span class="util-name">chai-border-blue-500</span><span class="util-val">#3b82f6</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"1.5px solid #ef4444","padding":"16px 28px","color":"#ef4444"}' data-css="border-color: #ef4444" data-text="red border"><span class="util-name">chai-border-red-500</span><span class="util-val">#ef4444</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"2px dashed rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-style: dashed" data-text="dashed border"><span class="util-name">chai-border-dashed</span><span class="util-val">dashed</span></div>
-      <div class="util-row" data-type="style" data-styles='{"border":"2px dotted rgba(255,255,255,0.35)","padding":"16px 28px"}' data-css="border-style: dotted" data-text="dotted border"><span class="util-name">chai-border-dotted</span><span class="util-val">dotted</span></div>
-
-      <div class="group-label">Border Radius</div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"0px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 0px" data-text="no radius"><span class="util-name">chai-rounded-none</span><span class="util-val">0px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"4px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 4px" data-text="rounded"><span class="util-name">chai-rounded</span><span class="util-val">4px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"6px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 6px" data-text="rounded-md"><span class="util-name">chai-rounded-md</span><span class="util-val">6px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"8px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 8px" data-text="rounded-lg"><span class="util-name">chai-rounded-lg</span><span class="util-val">8px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 12px" data-text="rounded-xl"><span class="util-name">chai-rounded-xl</span><span class="util-val">12px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"16px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 16px" data-text="rounded-2xl"><span class="util-name">chai-rounded-2xl</span><span class="util-val">16px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"24px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-radius: 24px" data-text="rounded-3xl"><span class="util-name">chai-rounded-3xl</span><span class="util-val">24px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderRadius":"9999px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 32px"}' data-css="border-radius: 9999px" data-text="pill shape"><span class="util-name">chai-rounded-full</span><span class="util-val">9999px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderTopLeftRadius":"12px","borderTopRightRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-top-left-radius: 12px; border-top-right-radius: 12px" data-text="top rounded"><span class="util-name">chai-rounded-t-xl</span><span class="util-val">top</span></div>
-      <div class="util-row" data-type="style" data-styles='{"borderBottomLeftRadius":"12px","borderBottomRightRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}' data-css="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px" data-text="bottom rounded"><span class="util-name">chai-rounded-b-xl</span><span class="util-val">bottom</span></div>
-
-      <!-- ── Shadow & Opacity ────────────────────────────────────────────── -->
-      <div class="group-label">Shadow</div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"0 1px 2px 0 rgb(0 0 0 / 0.05)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05)" data-text="shadow-sm"><span class="util-name">chai-shadow-sm</span><span class="util-val">small</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"0 4px 16px rgba(255,255,255,0.1)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: 0 4px 6px rgb(0 0 0 / 0.1)" data-text="shadow-md"><span class="util-name">chai-shadow-md</span><span class="util-val">medium</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"0 8px 24px rgba(255,255,255,0.12)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: 0 10px 15px rgb(0 0 0 / 0.1)" data-text="shadow-lg"><span class="util-name">chai-shadow-lg</span><span class="util-val">large</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"0 12px 40px rgba(255,255,255,0.15)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: 0 20px 25px rgb(0 0 0 / 0.25)" data-text="shadow-xl"><span class="util-name">chai-shadow-xl</span><span class="util-val">extra large</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"0 20px 60px rgba(255,255,255,0.2)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: 0 25px 50px rgb(0 0 0 / 0.25)" data-text="shadow-2xl"><span class="util-name">chai-shadow-2xl</span><span class="util-val">2x large</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"inset 0 2px 4px rgba(0,0,0,0.4)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.05)" data-text="shadow-inner"><span class="util-name">chai-shadow-inner</span><span class="util-val">inner</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxShadow":"none","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}' data-css="box-shadow: none" data-text="shadow-none"><span class="util-name">chai-shadow-none</span><span class="util-val">none</span></div>
-
-      <div class="group-label">Opacity</div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"0.1","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 0.1" data-text="opacity-10"><span class="util-name">chai-opacity-10</span><span class="util-val">0.1</span></div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"0.2","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 0.2" data-text="opacity-20"><span class="util-name">chai-opacity-20</span><span class="util-val">0.2</span></div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"0.4","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 0.4" data-text="opacity-40"><span class="util-name">chai-opacity-40</span><span class="util-val">0.4</span></div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"0.6","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 0.6" data-text="opacity-60"><span class="util-name">chai-opacity-60</span><span class="util-val">0.6</span></div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"0.75","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 0.75" data-text="opacity-75"><span class="util-name">chai-opacity-75</span><span class="util-val">0.75</span></div>
-      <div class="util-row" data-type="style" data-styles='{"opacity":"1","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="opacity: 1" data-text="opacity-100"><span class="util-name">chai-opacity-100</span><span class="util-val">1</span></div>
-
-      <!-- ── Layout ──────────────────────────────────────────────────────── -->
-      <div class="group-label">Display</div>
-      <div class="util-row" data-type="flex" data-dir="row"     data-css="display: flex; gap: 12px"><span class="util-name">chai-flex</span><span class="util-val">flex row</span></div>
-      <div class="util-row" data-type="flex" data-dir="col"     data-css="flex-direction: column"><span class="util-name">chai-flex-col</span><span class="util-val">flex column</span></div>
-      <div class="util-row" data-type="flex" data-dir="row-rev" data-css="flex-direction: row-reverse"><span class="util-name">chai-flex-row-reverse</span><span class="util-val">row reversed</span></div>
-      <div class="util-row" data-type="flex" data-dir="col-rev" data-css="flex-direction: column-reverse"><span class="util-name">chai-flex-col-reverse</span><span class="util-val">col reversed</span></div>
-      <div class="util-row" data-type="flex" data-dir="wrap"    data-css="flex-wrap: wrap"><span class="util-name">chai-flex-wrap</span><span class="util-val">wrap</span></div>
-      <div class="util-row" data-type="flex" data-dir="center"  data-css="align-items: center; justify-content: center"><span class="util-name">chai-items-center</span><span class="util-val">centered</span></div>
-      <div class="util-row" data-type="flex" data-dir="start"   data-css="align-items: flex-start"><span class="util-name">chai-items-start</span><span class="util-val">flex-start</span></div>
-      <div class="util-row" data-type="flex" data-dir="end"     data-css="align-items: flex-end"><span class="util-name">chai-items-end</span><span class="util-val">flex-end</span></div>
-      <div class="util-row" data-type="flex" data-dir="between" data-css="justify-content: space-between"><span class="util-name">chai-justify-between</span><span class="util-val">space-between</span></div>
-      <div class="util-row" data-type="flex" data-dir="around"  data-css="justify-content: space-around"><span class="util-name">chai-justify-around</span><span class="util-val">space-around</span></div>
-      <div class="util-row" data-type="flex" data-dir="evenly"  data-css="justify-content: space-evenly"><span class="util-name">chai-justify-evenly</span><span class="util-val">space-evenly</span></div>
-
-      <div class="group-label">Gap</div>
-      <div class="util-row" data-type="flex-gap" data-gap="4"  data-dir="row" data-css="gap: 4px"><span class="util-name">chai-gap-1</span><span class="util-val">4px</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="8"  data-dir="row" data-css="gap: 8px"><span class="util-name">chai-gap-2</span><span class="util-val">8px</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="16" data-dir="row" data-css="gap: 16px"><span class="util-name">chai-gap-4</span><span class="util-val">16px</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="24" data-dir="row" data-css="gap: 24px"><span class="util-name">chai-gap-6</span><span class="util-val">24px</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="32" data-dir="row" data-css="gap: 32px"><span class="util-name">chai-gap-8</span><span class="util-val">32px</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="16" data-dir="x"   data-css="column-gap: 16px"><span class="util-name">chai-gap-x-4</span><span class="util-val">col gap</span></div>
-      <div class="util-row" data-type="flex-gap" data-gap="16" data-dir="y"   data-css="row-gap: 16px"><span class="util-name">chai-gap-y-4</span><span class="util-val">row gap</span></div>
-
-      <div class="group-label">Grid</div>
-      <div class="util-row" data-type="flex" data-dir="grid2"  data-css="display: grid; grid-template-columns: repeat(2,1fr)"><span class="util-name">chai-cols-2</span><span class="util-val">2-col grid</span></div>
-      <div class="util-row" data-type="flex" data-dir="grid"   data-css="display: grid; grid-template-columns: repeat(3,1fr)"><span class="util-name">chai-cols-3</span><span class="util-val">3-col grid</span></div>
-      <div class="util-row" data-type="flex" data-dir="grid4"  data-css="display: grid; grid-template-columns: repeat(4,1fr)"><span class="util-name">chai-cols-4</span><span class="util-val">4-col grid</span></div>
-
-      <!-- ── Sizing ──────────────────────────────────────────────────────── -->
-      <div class="group-label">Width &amp; Height</div>
-      <div class="util-row" data-type="style" data-styles='{"width":"64px","height":"64px","backgroundColor":"#3b82f6"}' data-css="width: 64px" data-text=""><span class="util-name">chai-w-16</span><span class="util-val">64px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"width":"128px","height":"32px","backgroundColor":"#3b82f6"}' data-css="width: 128px" data-text=""><span class="util-name">chai-w-32</span><span class="util-val">128px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"width":"100%","height":"32px","backgroundColor":"#3b82f6"}' data-css="width: 100%" data-text="full width"><span class="util-name">chai-w-full</span><span class="util-val">100%</span></div>
-      <div class="util-row" data-type="style" data-styles='{"height":"64px","width":"64px","backgroundColor":"#a855f7"}' data-css="height: 64px" data-text=""><span class="util-name">chai-h-16</span><span class="util-val">64px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"height":"128px","width":"64px","backgroundColor":"#a855f7"}' data-css="height: 128px" data-text=""><span class="util-name">chai-h-32</span><span class="util-val">128px</span></div>
-      <div class="util-row" data-type="style" data-styles='{"width":"fit-content","padding":"12px 24px","backgroundColor":"#22c55e","color":"#fff","borderRadius":"6px"}' data-css="width: fit-content" data-text="fit-content"><span class="util-name">chai-w-fit</span><span class="util-val">fit-content</span></div>
-      <div class="util-row" data-type="style" data-styles='{"aspectRatio":"1/1","width":"80px","backgroundColor":"#f97316","borderRadius":"6px"}' data-css="aspect-ratio: 1 / 1" data-text=""><span class="util-name">chai-aspect-square</span><span class="util-val">1:1</span></div>
-      <div class="util-row" data-type="style" data-styles='{"aspectRatio":"16/9","width":"160px","backgroundColor":"#f97316","borderRadius":"6px"}' data-css="aspect-ratio: 16 / 9" data-text=""><span class="util-name">chai-aspect-video</span><span class="util-val">16:9</span></div>
-
-      <!-- ── Position ────────────────────────────────────────────────────── -->
-      <div class="group-label">Position</div>
-      <div class="util-row" data-type="style" data-styles='{"position":"relative","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}' data-css="position: relative" data-text="relative"><span class="util-name">chai-relative</span><span class="util-val">relative</span></div>
-      <div class="util-row" data-type="style" data-styles='{"position":"absolute","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}' data-css="position: absolute" data-text="absolute"><span class="util-name">chai-absolute</span><span class="util-val">absolute</span></div>
-      <div class="util-row" data-type="style" data-styles='{"position":"sticky","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}' data-css="position: sticky" data-text="sticky"><span class="util-name">chai-sticky</span><span class="util-val">sticky</span></div>
-
-      <!-- ── Z-Index ─────────────────────────────────────────────────────── -->
-      <div class="group-label">Z-Index</div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"0","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}' data-css="z-index: 0" data-text="z-0"><span class="util-name">chai-z-0</span><span class="util-val">0</span></div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"10","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}' data-css="z-index: 10" data-text="z-10"><span class="util-name">chai-z-10</span><span class="util-val">10</span></div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"50","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}' data-css="z-index: 50" data-text="z-50"><span class="util-name">chai-z-50</span><span class="util-val">50</span></div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"100","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #6366f1","color":"#a5b4fc"}' data-css="z-index: 100" data-text="z-modal"><span class="util-name">chai-z-modal</span><span class="util-val">100</span></div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"200","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #eab308","color":"#fde047"}' data-css="z-index: 200" data-text="z-toast"><span class="util-name">chai-z-toast</span><span class="util-val">200</span></div>
-      <div class="util-row" data-type="style" data-styles='{"zIndex":"300","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #ef4444","color":"#fca5a5"}' data-css="z-index: 300" data-text="z-tooltip"><span class="util-name">chai-z-tooltip</span><span class="util-val">300</span></div>
-
-      <!-- ── Overflow ────────────────────────────────────────────────────── -->
-      <div class="group-label">Overflow</div>
-      <div class="util-row" data-type="style" data-styles='{"overflow":"hidden","width":"140px","height":"56px","backgroundColor":"#111","border":"1px solid #222"}' data-css="overflow: hidden" data-text="hidden content here"><span class="util-name">chai-overflow-hidden</span><span class="util-val">hidden</span></div>
-      <div class="util-row" data-type="style" data-styles='{"overflow":"auto","width":"140px","height":"56px","backgroundColor":"#111","border":"1px solid #222"}' data-css="overflow: auto" data-text="scrollable content here that overflows"><span class="util-name">chai-overflow-auto</span><span class="util-val">auto</span></div>
-      <div class="util-row" data-type="style" data-styles='{"overflowX":"hidden","width":"140px","backgroundColor":"#111","border":"1px solid #222","padding":"12px"}' data-css="overflow-x: hidden" data-text="horizontal overflow hidden"><span class="util-name">chai-overflow-x-hidden</span><span class="util-val">x hidden</span></div>
-      <div class="util-row" data-type="style" data-styles='{"overflowY":"auto","height":"56px","width":"140px","backgroundColor":"#111","border":"1px solid #222","padding":"12px"}' data-css="overflow-y: auto" data-text="vertical overflow auto scroll"><span class="util-name">chai-overflow-y-auto</span><span class="util-val">y auto</span></div>
-
-      <!-- ── Transitions ─────────────────────────────────────────────────── -->
-      <div class="group-label">Transitions</div>
-      <div class="util-row" data-type="transition" data-prop="all"     data-dur="150" data-css="transition: all 150ms cubic-bezier(0.4,0,0.2,1)"><span class="util-name">chai-transition</span><span class="util-val">all 150ms</span></div>
-      <div class="util-row" data-type="transition" data-prop="colors"  data-dur="300" data-css="transition-property: color, background-color, border-color; transition-duration: 300ms"><span class="util-name">chai-transition-colors</span><span class="util-val">colors 300ms</span></div>
-      <div class="util-row" data-type="transition" data-prop="opacity" data-dur="300" data-css="transition-property: opacity; transition-duration: 300ms"><span class="util-name">chai-transition-opacity</span><span class="util-val">opacity 300ms</span></div>
-      <div class="util-row" data-type="transition" data-prop="transform" data-dur="300" data-css="transition-property: transform; transition-duration: 300ms"><span class="util-name">chai-transition-transform</span><span class="util-val">transform 300ms</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionDuration":"75ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-duration: 75ms" data-text="duration-75"><span class="util-name">chai-duration-75</span><span class="util-val">75ms</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionDuration":"300ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-duration: 300ms" data-text="duration-300"><span class="util-name">chai-duration-300</span><span class="util-val">300ms</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionDuration":"700ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-duration: 700ms" data-text="duration-700"><span class="util-name">chai-duration-700</span><span class="util-val">700ms</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionTimingFunction":"linear","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-timing-function: linear" data-text="ease-linear"><span class="util-name">chai-ease-linear</span><span class="util-val">linear</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionTimingFunction":"cubic-bezier(0.4,0,0.2,1)","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-timing-function: cubic-bezier(0.4,0,0.2,1)" data-text="ease-in-out"><span class="util-name">chai-ease-in-out</span><span class="util-val">in-out</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transitionTimingFunction":"cubic-bezier(0.34,1.56,0.64,1)","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}' data-css="transition-timing-function: cubic-bezier(0.34,1.56,0.64,1)" data-text="ease-bounce"><span class="util-name">chai-ease-bounce</span><span class="util-val">bounce</span></div>
-
-      <!-- ── Transform ───────────────────────────────────────────────────── -->
-      <div class="group-label">Transform</div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"scale(0.75)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="transform: scale(0.75)" data-text="scale-75"><span class="util-name">chai-scale-75</span><span class="util-val">0.75</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"scale(1.1)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="transform: scale(1.1)" data-text="scale-110"><span class="util-name">chai-scale-110</span><span class="util-val">1.1</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"scale(1.25)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="transform: scale(1.25)" data-text="scale-125"><span class="util-name">chai-scale-125</span><span class="util-val">1.25</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"rotate(45deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}' data-css="transform: rotate(45deg)" data-text="45°"><span class="util-name">chai-rotate-45</span><span class="util-val">45deg</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"rotate(90deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}' data-css="transform: rotate(90deg)" data-text="90°"><span class="util-name">chai-rotate-90</span><span class="util-val">90deg</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"rotate(180deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}' data-css="transform: rotate(180deg)" data-text="180°"><span class="util-name">chai-rotate-180</span><span class="util-val">180deg</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"translateX(24px)","backgroundColor":"#6366f1","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="transform: translateX(24px)" data-text="→ shifted"><span class="util-name">chai-translate-x-6</span><span class="util-val">+24px X</span></div>
-      <div class="util-row" data-type="style" data-styles='{"transform":"translateY(-16px)","backgroundColor":"#6366f1","color":"#fff","padding":"16px 28px","borderRadius":"6px"}' data-css="transform: translateY(-16px)" data-text="↑ shifted"><span class="util-name">chai-translate-y-4</span><span class="util-val">-16px Y</span></div>
-
-      <!-- ── Visibility & Misc ───────────────────────────────────────────── -->
-      <div class="group-label">Visibility &amp; Misc</div>
-      <div class="util-row" data-type="style" data-styles='{"visibility":"visible","backgroundColor":"#22c55e","color":"#fff","padding":"14px 24px","borderRadius":"6px"}' data-css="visibility: visible" data-text="visible"><span class="util-name">chai-visible</span><span class="util-val">visible</span></div>
-      <div class="util-row" data-type="style" data-styles='{"visibility":"hidden","backgroundColor":"#374151","color":"#fff","padding":"14px 24px","borderRadius":"6px"}' data-css="visibility: hidden" data-text="(hidden)"><span class="util-name">chai-invisible</span><span class="util-val">hidden</span></div>
-      <div class="util-row" data-type="style" data-styles='{"cursor":"pointer","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 24px","borderRadius":"6px"}' data-css="cursor: pointer" data-text="hover me"><span class="util-name">chai-cursor-pointer</span><span class="util-val">pointer</span></div>
-      <div class="util-row" data-type="style" data-styles='{"cursor":"not-allowed","backgroundColor":"#374151","color":"#9ca3af","padding":"14px 24px","borderRadius":"6px"}' data-css="cursor: not-allowed" data-text="disabled"><span class="util-name">chai-cursor-not-allowed</span><span class="util-val">not-allowed</span></div>
-      <div class="util-row" data-type="style" data-styles='{"pointerEvents":"none","backgroundColor":"#374151","color":"#9ca3af","padding":"14px 24px","borderRadius":"6px"}' data-css="pointer-events: none" data-text="no events"><span class="util-name">chai-pointer-events-none</span><span class="util-val">none</span></div>
-      <div class="util-row" data-type="style" data-styles='{"userSelect":"none","backgroundColor":"#111827","color":"#f2f2f0","padding":"14px 24px","border":"1px solid #222"}' data-css="user-select: none" data-text="try to select me"><span class="util-name">chai-select-none</span><span class="util-val">no select</span></div>
-      <div class="util-row" data-type="style" data-styles='{"objectFit":"cover","width":"120px","height":"80px","backgroundColor":"#a855f7","borderRadius":"4px"}' data-css="object-fit: cover" data-text="cover"><span class="util-name">chai-object-cover</span><span class="util-val">cover</span></div>
-      <div class="util-row" data-type="style" data-styles='{"boxSizing":"border-box","width":"120px","padding":"16px","backgroundColor":"#f97316","color":"#fff","borderRadius":"4px","border":"4px solid #c2410c"}' data-css="box-sizing: border-box" data-text="border-box"><span class="util-name">chai-box-border</span><span class="util-val">border-box</span></div>
-
-    </div>
-
-    <!-- PREVIEW PANE -->
-    <div class="preview-pane">
-      <div class="preview-canvas">
-        <!-- spacing visualiser -->
-        <div id="preview-shell">
-          <div class="shell-outer" id="shell-outer">
-            <div class="shell-inner" id="shell-inner">content</div>
-          </div>
-          <div class="tick" id="tick-top"    style="top:-20px; left:50%; transform:translateX(-50%)"></div>
-          <div class="tick" id="tick-right"  style="right:-46px; top:50%; transform:translateY(-50%)"></div>
-          <div class="tick" id="tick-bottom" style="bottom:-20px; left:50%; transform:translateX(-50%)"></div>
-          <div class="tick" id="tick-left"   style="left:-46px; top:50%; transform:translateY(-50%)"></div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div>
+          <p class="hero-eyebrow f1">
+            Web Dev Cohort 2026 · Assignment Project
+          </p>
+          <h1 class="hero-title f2">
+            Chai<br />
+            <span class="outline">Tail</span><br />
+            Win <span class="slope-font hero-dt89">DT89</span>
+          </h1>
+          <p class="hero-desc f3">
+            A zero-dependency, utility-first CSS engine in vanilla JS. Write
+            <code>chai-p-4</code>, <code>chai-bg-blue-500</code>,
+            <code>chai-flex</code> — the engine scans your DOM and applies
+            inline styles automatically. No build step. No config. No npm.
+          </p>
         </div>
-        <!-- generic preview -->
-        <div id="preview-inner">Hover a utility</div>
+        <div class="f4">
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">150+</span
+              ><span class="stat-label">Utilities</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">0</span
+              ><span class="stat-label">Dependencies</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">~5kb</span
+              ><span class="stat-label">Size</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">4</span
+              ><span class="stat-label">Files</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="preview-output">
-        <div class="output-label">Computed CSS</div>
-        <div id="css-output"><span class="css-hint">← hover any class on the left</span></div>
+      <div class="hero-right f3">
+        <div class="terminal-bar">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <span class="terminal-name">index.html</span>
+        </div>
+        <div class="code-block">
+          <div>
+            <span class="ln">1</span><span class="tag">&lt;script</span>
+            <span class="attr">type</span>=<span class="val">"module"</span>
+            <span class="attr">src</span>=<span class="val">"main.js"</span
+            ><span class="tag">&gt;&lt;/script&gt;</span>
+          </div>
+          <div><span class="ln">2</span></div>
+          <div>
+            <span class="ln">3</span><span class="tag">&lt;div</span>
+            <span class="attr">class</span>=<span class="val"
+              >"<span class="hl">chai-flex</span>
+              <span class="hl">chai-items-center</span>
+              <span class="hl">chai-gap-4</span>"</span
+            ><span class="tag">&gt;</span>
+          </div>
+          <div>
+            <span class="ln">4</span>&nbsp;&nbsp;<span class="tag"
+              >&lt;div</span
+            >
+            <span class="attr">class</span>=<span class="val"
+              >"<span class="hl">chai-bg-blue-500</span></span
+            >
+          </div>
+          <div>
+            <span class="ln">5</span
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="val"
+              ><span class="hl">chai-text-white</span></span
+            >
+          </div>
+          <div>
+            <span class="ln">6</span
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="val"
+              ><span class="hl">chai-p-6</span></span
+            >
+          </div>
+          <div>
+            <span class="ln">7</span
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              class="val"
+              ><span class="hl">chai-rounded-xl</span>"</span
+            ><span class="tag">&gt;</span>
+          </div>
+          <div>
+            <span class="ln">8</span>&nbsp;&nbsp;&nbsp;&nbsp;Hello, ChaiTailwind
+            <span class="cursor"></span>
+          </div>
+          <div>
+            <span class="ln">9</span>&nbsp;&nbsp;<span class="tag"
+              >&lt;/div&gt;</span
+            >
+          </div>
+          <div>
+            <span class="ln">10</span><span class="tag">&lt;/div&gt;</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="section-header">
-    <span class="sec-num">02</span>
-    <h2 class="sec-title">How it works</h2>
-  </div>
-  <div class="flow-steps">
-    <div class="flow-step">
-      <div class="flow-n">01</div>
-      <div class="flow-badge">index.html</div>
-      <div class="flow-title">Browser loads the page</div>
-      <div class="flow-body">A single <code>&lt;script type="module"&gt;</code> tag. The browser's native ES module support handles all imports — no bundler, no npm, no build step.</div>
-      <span class="flow-arrow">→</span>
-    </div>
-    <div class="flow-step">
-      <div class="flow-n">02</div>
-      <div class="flow-badge">main.js</div>
-      <div class="flow-title">Engine initialises</div>
-      <div class="flow-body">Waits for <code>DOMContentLoaded</code>, then calls <code>scanDOM()</code> for existing elements and <code>watchDOM()</code> for anything added later.</div>
-      <span class="flow-arrow">→</span>
-    </div>
-    <div class="flow-step">
-      <div class="flow-n">03</div>
-      <div class="flow-badge">engine.js</div>
-      <div class="flow-title">DOM is scanned</div>
-      <div class="flow-body"><code>querySelectorAll('[class*="chai-"]')</code> finds every element. A <code>MutationObserver</code> keeps watching for new nodes at runtime.</div>
-      <span class="flow-arrow">→</span>
-    </div>
-    <div class="flow-step">
-      <div class="flow-n">04</div>
-      <div class="flow-badge">rules.js + config.js</div>
-      <div class="flow-title">Class becomes style</div>
-      <div class="flow-body"><code>parseClass("bg-blue-500")</code> returns <code>{ backgroundColor: "#3b82f6" }</code>. <code>Object.assign(el.style, styles)</code> writes it to the DOM element.</div>
-    </div>
-  </div>
-</section>
-
-<!-- INSTALL -->
-<section id="install">
-  <div class="section-header">
-    <span class="sec-num">03</span>
-    <h2 class="sec-title">Get started</h2>
-  </div>
-  <div class="install-grid">
-    <div class="install-left">
-  <div class="step">
-    <div class="step-n">1</div>
-    <div class="step-body">
-      <div class="step-title">CDN — jsDelivr</div>
-      <div class="step-code">&lt;script type="module" src="https://cdn.jsdelivr.net/gh/KARDT89/chai-tailwind@latest/src/main.js"&gt;&lt;/script&gt;</div>
-      <div class="step-note">drop it in your &lt;head&gt; — no build step, no setup</div>
-    </div>
-  </div>
-  <div class="step">
-    <div class="step-n">2</div>
-    <div class="step-body">
-      <div class="step-title">Clone the repo</div>
-      <div class="step-code">git clone https://github.com/KARDT89/chai-tailwind</div>
-      <div class="step-note">or download the ZIP from GitHub</div>
-    </div>
-  </div>
-  <div class="step">
-    <div class="step-n">3</div>
-    <div class="step-body">
-      <div class="step-title">Write classes, done</div>
-      <div class="step-code">&lt;div class="chai-flex chai-p-4 chai-bg-blue-500"&gt;</div>
-      <div class="step-note">no config, no compilation, no setup</div>
-    </div>
-  </div>
-</div>
-
-    <div class="install-right">
-      <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.2;margin-bottom:20px;">Project structure</div>
-      <div class="file-tree">
-        <div style="opacity:0.2;">chai-tailwind/</div>
-        <div>&nbsp;&nbsp;├── <span class="file">index.html</span> <span class="note">← your HTML page</span></div>
-        <div>&nbsp;&nbsp;├── <span class="file">main.js</span> <span class="note">← entry point (8 lines)</span></div>
-        <div>&nbsp;&nbsp;└── src/</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="file">config.js</span> <span class="note">← colors, spacing, sizes</span></div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="file">rules.js</span> <span class="note">← parseClass() pure fn</span></div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="file">engine.js</span> <span class="note">← DOM scan + observe</span></div>
+    <!-- LIVE DEMO -->
+    <section id="demo">
+      <div class="section-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Hover any utility — see it live</h2>
       </div>
-      <div class="ctas">
-        <a class="btn-p" href="https://kardt89.github.io/chai-tailwind/" target="_blank">Live demo →</a>
-        <a class="btn-s" href="https://github.com/KARDT89/chai-tailwind" target="_blank">GitHub</a>
+      <div class="demo-grid">
+        <div class="utility-list">
+          <!-- ── Spacing ─────────────────────────────────────────────────────── -->
+          <div class="group-label">Spacing — Padding</div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="4"
+            data-axis="all"
+            data-css="padding: 4px"
+          >
+            <span class="util-name">chai-p-1</span
+            ><span class="util-val">4px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="8"
+            data-axis="all"
+            data-css="padding: 8px"
+          >
+            <span class="util-name">chai-p-2</span
+            ><span class="util-val">8px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="16"
+            data-axis="all"
+            data-css="padding: 16px"
+          >
+            <span class="util-name">chai-p-4</span
+            ><span class="util-val">16px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="24"
+            data-axis="all"
+            data-css="padding: 24px"
+          >
+            <span class="util-name">chai-p-6</span
+            ><span class="util-val">24px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="32"
+            data-axis="all"
+            data-css="padding: 32px"
+          >
+            <span class="util-name">chai-p-8</span
+            ><span class="util-val">32px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="48"
+            data-axis="all"
+            data-css="padding: 48px"
+          >
+            <span class="util-name">chai-p-12</span
+            ><span class="util-val">48px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="32"
+            data-axis="x"
+            data-css="padding-left: 32px; padding-right: 32px"
+          >
+            <span class="util-name">chai-px-8</span
+            ><span class="util-val">horizontal</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="32"
+            data-axis="y"
+            data-css="padding-top: 32px; padding-bottom: 32px"
+          >
+            <span class="util-name">chai-py-8</span
+            ><span class="util-val">vertical</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="16"
+            data-axis="t"
+            data-css="padding-top: 16px"
+          >
+            <span class="util-name">chai-pt-4</span
+            ><span class="util-val">top</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="16"
+            data-axis="b"
+            data-css="padding-bottom: 16px"
+          >
+            <span class="util-name">chai-pb-4</span
+            ><span class="util-val">bottom</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="16"
+            data-axis="l"
+            data-css="padding-left: 16px"
+          >
+            <span class="util-name">chai-pl-4</span
+            ><span class="util-val">left</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="spacing"
+            data-px="16"
+            data-axis="r"
+            data-css="padding-right: 16px"
+          >
+            <span class="util-name">chai-pr-4</span
+            ><span class="util-val">right</span>
+          </div>
+
+          <div class="group-label">Spacing — Margin</div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="8"
+            data-axis="all"
+            data-css="margin: 8px"
+          >
+            <span class="util-name">chai-m-2</span
+            ><span class="util-val">8px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="16"
+            data-axis="all"
+            data-css="margin: 16px"
+          >
+            <span class="util-name">chai-m-4</span
+            ><span class="util-val">16px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="32"
+            data-axis="x"
+            data-css="margin-left: 32px; margin-right: 32px"
+          >
+            <span class="util-name">chai-mx-8</span
+            ><span class="util-val">horizontal</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="32"
+            data-axis="y"
+            data-css="margin-top: 32px; margin-bottom: 32px"
+          >
+            <span class="util-name">chai-my-8</span
+            ><span class="util-val">vertical</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="16"
+            data-axis="t"
+            data-css="margin-top: 16px"
+          >
+            <span class="util-name">chai-mt-4</span
+            ><span class="util-val">top</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="margin"
+            data-px="16"
+            data-axis="b"
+            data-css="margin-bottom: 16px"
+          >
+            <span class="util-name">chai-mb-4</span
+            ><span class="util-val">bottom</span>
+          </div>
+
+          <!-- ── Background ──────────────────────────────────────────────────── -->
+          <div class="group-label">Background</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#ef4444","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #ef4444"
+          >
+            <span class="util-name">chai-bg-red-500</span
+            ><span class="util-val">#ef4444</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#fee2e2","padding":"20px 32px","color":"#b91c1c","borderRadius":"6px"}'
+            data-css="background-color: #fee2e2"
+          >
+            <span class="util-name">chai-bg-red-100</span
+            ><span class="util-val">#fee2e2</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#3b82f6","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #3b82f6"
+          >
+            <span class="util-name">chai-bg-blue-500</span
+            ><span class="util-val">#3b82f6</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#dbeafe","padding":"20px 32px","color":"#1d4ed8","borderRadius":"6px"}'
+            data-css="background-color: #dbeafe"
+          >
+            <span class="util-name">chai-bg-blue-100</span
+            ><span class="util-val">#dbeafe</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#22c55e","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #22c55e"
+          >
+            <span class="util-name">chai-bg-green-500</span
+            ><span class="util-val">#22c55e</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#a855f7","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #a855f7"
+          >
+            <span class="util-name">chai-bg-purple-500</span
+            ><span class="util-val">#a855f7</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#eab308","padding":"20px 32px","color":"#000","borderRadius":"6px"}'
+            data-css="background-color: #eab308"
+          >
+            <span class="util-name">chai-bg-yellow-500</span
+            ><span class="util-val">#eab308</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#f97316","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #f97316"
+          >
+            <span class="util-name">chai-bg-orange-500</span
+            ><span class="util-val">#f97316</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#14b8a6","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #14b8a6"
+          >
+            <span class="util-name">chai-bg-teal-500</span
+            ><span class="util-val">#14b8a6</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#06b6d4","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #06b6d4"
+          >
+            <span class="util-name">chai-bg-cyan-500</span
+            ><span class="util-val">#06b6d4</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#6366f1","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #6366f1"
+          >
+            <span class="util-name">chai-bg-indigo-500</span
+            ><span class="util-val">#6366f1</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#f43f5e","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #f43f5e"
+          >
+            <span class="util-name">chai-bg-rose-500</span
+            ><span class="util-val">#f43f5e</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#f59e0b","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #f59e0b"
+          >
+            <span class="util-name">chai-bg-amber-500</span
+            ><span class="util-val">#f59e0b</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#84cc16","padding":"20px 32px","color":"#fff","borderRadius":"6px"}'
+            data-css="background-color: #84cc16"
+          >
+            <span class="util-name">chai-bg-lime-500</span
+            ><span class="util-val">#84cc16</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#111827","padding":"20px 32px","color":"#f3f4f6","borderRadius":"6px"}'
+            data-css="background-color: #111827"
+          >
+            <span class="util-name">chai-bg-gray-900</span
+            ><span class="util-val">#111827</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"backgroundColor":"#f3f4f6","padding":"20px 32px","color":"#111827","borderRadius":"6px"}'
+            data-css="background-color: #f3f4f6"
+          >
+            <span class="util-name">chai-bg-gray-100</span
+            ><span class="util-val">#f3f4f6</span>
+          </div>
+
+          <!-- ── Typography ──────────────────────────────────────────────────── -->
+          <div class="group-label">Typography — Size</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"0.625rem"}'
+            data-css="font-size: 0.625rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-2xs</span
+            ><span class="util-val">0.625rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"0.75rem"}'
+            data-css="font-size: 0.75rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-xs</span
+            ><span class="util-val">0.75rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"0.875rem"}'
+            data-css="font-size: 0.875rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-sm</span
+            ><span class="util-val">0.875rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"1rem"}'
+            data-css="font-size: 1rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-base</span
+            ><span class="util-val">1rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"1.125rem"}'
+            data-css="font-size: 1.125rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-lg</span
+            ><span class="util-val">1.125rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"1.25rem"}'
+            data-css="font-size: 1.25rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-xl</span
+            ><span class="util-val">1.25rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"1.5rem"}'
+            data-css="font-size: 1.5rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-2xl</span
+            ><span class="util-val">1.5rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"1.875rem"}'
+            data-css="font-size: 1.875rem"
+            data-text="The quick brown fox"
+          >
+            <span class="util-name">chai-text-3xl</span
+            ><span class="util-val">1.875rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"2.25rem"}'
+            data-css="font-size: 2.25rem"
+            data-text="Display"
+          >
+            <span class="util-name">chai-text-4xl</span
+            ><span class="util-val">2.25rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"3rem"}'
+            data-css="font-size: 3rem"
+            data-text="Display"
+          >
+            <span class="util-name">chai-text-5xl</span
+            ><span class="util-val">3rem</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontSize":"3.75rem"}'
+            data-css="font-size: 3.75rem"
+            data-text="Big"
+          >
+            <span class="util-name">chai-text-6xl</span
+            ><span class="util-val">3.75rem</span>
+          </div>
+
+          <div class="group-label">Typography — Weight</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"100","fontSize":"1.1rem"}'
+            data-css="font-weight: 100"
+            data-text="Thin text"
+          >
+            <span class="util-name">chai-font-thin</span
+            ><span class="util-val">100</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"200","fontSize":"1.1rem"}'
+            data-css="font-weight: 200"
+            data-text="Extralight text"
+          >
+            <span class="util-name">chai-font-extralight</span
+            ><span class="util-val">200</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"300","fontSize":"1.1rem"}'
+            data-css="font-weight: 300"
+            data-text="Light text"
+          >
+            <span class="util-name">chai-font-light</span
+            ><span class="util-val">300</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"400","fontSize":"1.1rem"}'
+            data-css="font-weight: 400"
+            data-text="Normal text"
+          >
+            <span class="util-name">chai-font-normal</span
+            ><span class="util-val">400</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"500","fontSize":"1.1rem"}'
+            data-css="font-weight: 500"
+            data-text="Medium text"
+          >
+            <span class="util-name">chai-font-medium</span
+            ><span class="util-val">500</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"600","fontSize":"1.1rem"}'
+            data-css="font-weight: 600"
+            data-text="Semibold text"
+          >
+            <span class="util-name">chai-font-semibold</span
+            ><span class="util-val">600</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"700","fontSize":"1.1rem"}'
+            data-css="font-weight: 700"
+            data-text="Bold text"
+          >
+            <span class="util-name">chai-font-bold</span
+            ><span class="util-val">700</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"800","fontSize":"1.1rem"}'
+            data-css="font-weight: 800"
+            data-text="Extrabold text"
+          >
+            <span class="util-name">chai-font-extrabold</span
+            ><span class="util-val">800</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontWeight":"900","fontSize":"1.1rem"}'
+            data-css="font-weight: 900"
+            data-text="Black text"
+          >
+            <span class="util-name">chai-font-black</span
+            ><span class="util-val">900</span>
+          </div>
+
+          <div class="group-label">Typography — Line Height</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"lineHeight":"1","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}'
+            data-css="line-height: 1"
+            data-text="The quick brown fox jumps"
+          >
+            <span class="util-name">chai-leading-none</span
+            ><span class="util-val">1</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"lineHeight":"1.25","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}'
+            data-css="line-height: 1.25"
+            data-text="The quick brown fox jumps"
+          >
+            <span class="util-name">chai-leading-tight</span
+            ><span class="util-val">1.25</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"lineHeight":"1.5","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}'
+            data-css="line-height: 1.5"
+            data-text="The quick brown fox jumps"
+          >
+            <span class="util-name">chai-leading-normal</span
+            ><span class="util-val">1.5</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"lineHeight":"1.625","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}'
+            data-css="line-height: 1.625"
+            data-text="The quick brown fox jumps"
+          >
+            <span class="util-name">chai-leading-relaxed</span
+            ><span class="util-val">1.625</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"lineHeight":"2","fontSize":"0.95rem","maxWidth":"180px","textAlign":"center"}'
+            data-css="line-height: 2"
+            data-text="The quick brown fox jumps"
+          >
+            <span class="util-name">chai-leading-loose</span
+            ><span class="util-val">2</span>
+          </div>
+
+          <div class="group-label">Typography — Letter Spacing</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"letterSpacing":"-0.05em","fontSize":"1rem"}'
+            data-css="letter-spacing: -0.05em"
+            data-text="CHAI TAILWIND"
+          >
+            <span class="util-name">chai-tracking-tighter</span
+            ><span class="util-val">-0.05em</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"letterSpacing":"0em","fontSize":"1rem"}'
+            data-css="letter-spacing: 0em"
+            data-text="CHAI TAILWIND"
+          >
+            <span class="util-name">chai-tracking-normal</span
+            ><span class="util-val">0em</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"letterSpacing":"0.05em","fontSize":"1rem"}'
+            data-css="letter-spacing: 0.05em"
+            data-text="CHAI TAILWIND"
+          >
+            <span class="util-name">chai-tracking-wide</span
+            ><span class="util-val">0.05em</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"letterSpacing":"0.1em","fontSize":"1rem"}'
+            data-css="letter-spacing: 0.1em"
+            data-text="CHAI TAILWIND"
+          >
+            <span class="util-name">chai-tracking-widest</span
+            ><span class="util-val">0.1em</span>
+          </div>
+
+          <div class="group-label">Typography — Decoration &amp; Transform</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"textTransform":"uppercase","letterSpacing":"0.14em"}'
+            data-css="text-transform: uppercase"
+            data-text="chai tailwind"
+          >
+            <span class="util-name">chai-uppercase</span
+            ><span class="util-val">uppercase</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"textTransform":"lowercase"}'
+            data-css="text-transform: lowercase"
+            data-text="CHAI TAILWIND"
+          >
+            <span class="util-name">chai-lowercase</span
+            ><span class="util-val">lowercase</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"textTransform":"capitalize"}'
+            data-css="text-transform: capitalize"
+            data-text="chai tailwind"
+          >
+            <span class="util-name">chai-capitalize</span
+            ><span class="util-val">capitalize</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"textDecoration":"underline"}'
+            data-css="text-decoration: underline"
+            data-text="underlined text"
+          >
+            <span class="util-name">chai-underline</span
+            ><span class="util-val">underline</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"textDecoration":"line-through"}'
+            data-css="text-decoration: line-through"
+            data-text="line-through text"
+          >
+            <span class="util-name">chai-line-through</span
+            ><span class="util-val">line-through</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"fontStyle":"italic","fontSize":"1rem"}'
+            data-css="font-style: italic"
+            data-text="Italic text"
+          >
+            <span class="util-name">chai-italic</span
+            ><span class="util-val">italic</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"overflow":"hidden","textOverflow":"ellipsis","whiteSpace":"nowrap","width":"160px"}'
+            data-css="overflow: hidden; text-overflow: ellipsis; white-space: nowrap"
+            data-text="This text is way too long to fit"
+          >
+            <span class="util-name">chai-truncate</span
+            ><span class="util-val">ellipsis</span>
+          </div>
+
+          <div class="group-label">Typography — Color</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"color":"#ef4444","fontSize":"1rem"}'
+            data-css="color: #ef4444"
+            data-text="Red text"
+          >
+            <span class="util-name">chai-text-red-500</span
+            ><span class="util-val">#ef4444</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"color":"#3b82f6","fontSize":"1rem"}'
+            data-css="color: #3b82f6"
+            data-text="Blue text"
+          >
+            <span class="util-name">chai-text-blue-500</span
+            ><span class="util-val">#3b82f6</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"color":"#22c55e","fontSize":"1rem"}'
+            data-css="color: #22c55e"
+            data-text="Green text"
+          >
+            <span class="util-name">chai-text-green-500</span
+            ><span class="util-val">#22c55e</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"color":"#6b7280","fontSize":"1rem"}'
+            data-css="color: #6b7280"
+            data-text="Gray text"
+          >
+            <span class="util-name">chai-text-gray-500</span
+            ><span class="util-val">#6b7280</span>
+          </div>
+
+          <!-- ── Border & Radius ─────────────────────────────────────────────── -->
+          <div class="group-label">Border</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border: 1px solid"
+            data-text="bordered box"
+          >
+            <span class="util-name">chai-border</span
+            ><span class="util-val">1px solid</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"2px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-width: 2px"
+            data-text="2px border"
+          >
+            <span class="util-name">chai-border-2</span
+            ><span class="util-val">2px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"4px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-width: 4px"
+            data-text="4px border"
+          >
+            <span class="util-name">chai-border-4</span
+            ><span class="util-val">4px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"8px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-width: 8px"
+            data-text="8px border"
+          >
+            <span class="util-name">chai-border-8</span
+            ><span class="util-val">8px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderTop":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-top: 1px solid"
+            data-text="top border"
+          >
+            <span class="util-name">chai-border-t</span
+            ><span class="util-val">top</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderBottom":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-bottom: 1px solid"
+            data-text="bottom border"
+          >
+            <span class="util-name">chai-border-b</span
+            ><span class="util-val">bottom</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderLeft":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-left: 1px solid"
+            data-text="left border"
+          >
+            <span class="util-name">chai-border-l</span
+            ><span class="util-val">left</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRight":"1px solid rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-right: 1px solid"
+            data-text="right border"
+          >
+            <span class="util-name">chai-border-r</span
+            ><span class="util-val">right</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"1.5px solid #3b82f6","padding":"16px 28px","color":"#3b82f6"}'
+            data-css="border-color: #3b82f6"
+            data-text="blue border"
+          >
+            <span class="util-name">chai-border-blue-500</span
+            ><span class="util-val">#3b82f6</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"1.5px solid #ef4444","padding":"16px 28px","color":"#ef4444"}'
+            data-css="border-color: #ef4444"
+            data-text="red border"
+          >
+            <span class="util-name">chai-border-red-500</span
+            ><span class="util-val">#ef4444</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"2px dashed rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-style: dashed"
+            data-text="dashed border"
+          >
+            <span class="util-name">chai-border-dashed</span
+            ><span class="util-val">dashed</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"border":"2px dotted rgba(255,255,255,0.35)","padding":"16px 28px"}'
+            data-css="border-style: dotted"
+            data-text="dotted border"
+          >
+            <span class="util-name">chai-border-dotted</span
+            ><span class="util-val">dotted</span>
+          </div>
+
+          <div class="group-label">Border Radius</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"0px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 0px"
+            data-text="no radius"
+          >
+            <span class="util-name">chai-rounded-none</span
+            ><span class="util-val">0px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"4px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 4px"
+            data-text="rounded"
+          >
+            <span class="util-name">chai-rounded</span
+            ><span class="util-val">4px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"6px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 6px"
+            data-text="rounded-md"
+          >
+            <span class="util-name">chai-rounded-md</span
+            ><span class="util-val">6px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"8px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 8px"
+            data-text="rounded-lg"
+          >
+            <span class="util-name">chai-rounded-lg</span
+            ><span class="util-val">8px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 12px"
+            data-text="rounded-xl"
+          >
+            <span class="util-name">chai-rounded-xl</span
+            ><span class="util-val">12px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"16px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 16px"
+            data-text="rounded-2xl"
+          >
+            <span class="util-name">chai-rounded-2xl</span
+            ><span class="util-val">16px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"24px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-radius: 24px"
+            data-text="rounded-3xl"
+          >
+            <span class="util-name">chai-rounded-3xl</span
+            ><span class="util-val">24px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderRadius":"9999px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 32px"}'
+            data-css="border-radius: 9999px"
+            data-text="pill shape"
+          >
+            <span class="util-name">chai-rounded-full</span
+            ><span class="util-val">9999px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderTopLeftRadius":"12px","borderTopRightRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-top-left-radius: 12px; border-top-right-radius: 12px"
+            data-text="top rounded"
+          >
+            <span class="util-name">chai-rounded-t-xl</span
+            ><span class="util-val">top</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"borderBottomLeftRadius":"12px","borderBottomRightRadius":"12px","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 28px"}'
+            data-css="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px"
+            data-text="bottom rounded"
+          >
+            <span class="util-name">chai-rounded-b-xl</span
+            ><span class="util-val">bottom</span>
+          </div>
+
+          <!-- ── Shadow & Opacity ────────────────────────────────────────────── -->
+          <div class="group-label">Shadow</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"0 1px 2px 0 rgb(0 0 0 / 0.05)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05)"
+            data-text="shadow-sm"
+          >
+            <span class="util-name">chai-shadow-sm</span
+            ><span class="util-val">small</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"0 4px 16px rgba(255,255,255,0.1)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: 0 4px 6px rgb(0 0 0 / 0.1)"
+            data-text="shadow-md"
+          >
+            <span class="util-name">chai-shadow-md</span
+            ><span class="util-val">medium</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"0 8px 24px rgba(255,255,255,0.12)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: 0 10px 15px rgb(0 0 0 / 0.1)"
+            data-text="shadow-lg"
+          >
+            <span class="util-name">chai-shadow-lg</span
+            ><span class="util-val">large</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"0 12px 40px rgba(255,255,255,0.15)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: 0 20px 25px rgb(0 0 0 / 0.25)"
+            data-text="shadow-xl"
+          >
+            <span class="util-name">chai-shadow-xl</span
+            ><span class="util-val">extra large</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"0 20px 60px rgba(255,255,255,0.2)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: 0 25px 50px rgb(0 0 0 / 0.25)"
+            data-text="shadow-2xl"
+          >
+            <span class="util-name">chai-shadow-2xl</span
+            ><span class="util-val">2x large</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"inset 0 2px 4px rgba(0,0,0,0.4)","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.05)"
+            data-text="shadow-inner"
+          >
+            <span class="util-name">chai-shadow-inner</span
+            ><span class="util-val">inner</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxShadow":"none","backgroundColor":"#111","padding":"16px 28px","border":"1px solid #1e1e1e"}'
+            data-css="box-shadow: none"
+            data-text="shadow-none"
+          >
+            <span class="util-name">chai-shadow-none</span
+            ><span class="util-val">none</span>
+          </div>
+
+          <div class="group-label">Opacity</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"0.1","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 0.1"
+            data-text="opacity-10"
+          >
+            <span class="util-name">chai-opacity-10</span
+            ><span class="util-val">0.1</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"0.2","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 0.2"
+            data-text="opacity-20"
+          >
+            <span class="util-name">chai-opacity-20</span
+            ><span class="util-val">0.2</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"0.4","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 0.4"
+            data-text="opacity-40"
+          >
+            <span class="util-name">chai-opacity-40</span
+            ><span class="util-val">0.4</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"0.6","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 0.6"
+            data-text="opacity-60"
+          >
+            <span class="util-name">chai-opacity-60</span
+            ><span class="util-val">0.6</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"0.75","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 0.75"
+            data-text="opacity-75"
+          >
+            <span class="util-name">chai-opacity-75</span
+            ><span class="util-val">0.75</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"opacity":"1","backgroundColor":"#3b82f6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="opacity: 1"
+            data-text="opacity-100"
+          >
+            <span class="util-name">chai-opacity-100</span
+            ><span class="util-val">1</span>
+          </div>
+
+          <!-- ── Layout ──────────────────────────────────────────────────────── -->
+          <div class="group-label">Display</div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="row"
+            data-css="display: flex; gap: 12px"
+          >
+            <span class="util-name">chai-flex</span
+            ><span class="util-val">flex row</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="col"
+            data-css="flex-direction: column"
+          >
+            <span class="util-name">chai-flex-col</span
+            ><span class="util-val">flex column</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="row-rev"
+            data-css="flex-direction: row-reverse"
+          >
+            <span class="util-name">chai-flex-row-reverse</span
+            ><span class="util-val">row reversed</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="col-rev"
+            data-css="flex-direction: column-reverse"
+          >
+            <span class="util-name">chai-flex-col-reverse</span
+            ><span class="util-val">col reversed</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="wrap"
+            data-css="flex-wrap: wrap"
+          >
+            <span class="util-name">chai-flex-wrap</span
+            ><span class="util-val">wrap</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="center"
+            data-css="align-items: center; justify-content: center"
+          >
+            <span class="util-name">chai-items-center</span
+            ><span class="util-val">centered</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="start"
+            data-css="align-items: flex-start"
+          >
+            <span class="util-name">chai-items-start</span
+            ><span class="util-val">flex-start</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="end"
+            data-css="align-items: flex-end"
+          >
+            <span class="util-name">chai-items-end</span
+            ><span class="util-val">flex-end</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="between"
+            data-css="justify-content: space-between"
+          >
+            <span class="util-name">chai-justify-between</span
+            ><span class="util-val">space-between</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="around"
+            data-css="justify-content: space-around"
+          >
+            <span class="util-name">chai-justify-around</span
+            ><span class="util-val">space-around</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="evenly"
+            data-css="justify-content: space-evenly"
+          >
+            <span class="util-name">chai-justify-evenly</span
+            ><span class="util-val">space-evenly</span>
+          </div>
+
+          <div class="group-label">Gap</div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="4"
+            data-dir="row"
+            data-css="gap: 4px"
+          >
+            <span class="util-name">chai-gap-1</span
+            ><span class="util-val">4px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="8"
+            data-dir="row"
+            data-css="gap: 8px"
+          >
+            <span class="util-name">chai-gap-2</span
+            ><span class="util-val">8px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="16"
+            data-dir="row"
+            data-css="gap: 16px"
+          >
+            <span class="util-name">chai-gap-4</span
+            ><span class="util-val">16px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="24"
+            data-dir="row"
+            data-css="gap: 24px"
+          >
+            <span class="util-name">chai-gap-6</span
+            ><span class="util-val">24px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="32"
+            data-dir="row"
+            data-css="gap: 32px"
+          >
+            <span class="util-name">chai-gap-8</span
+            ><span class="util-val">32px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="16"
+            data-dir="x"
+            data-css="column-gap: 16px"
+          >
+            <span class="util-name">chai-gap-x-4</span
+            ><span class="util-val">col gap</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex-gap"
+            data-gap="16"
+            data-dir="y"
+            data-css="row-gap: 16px"
+          >
+            <span class="util-name">chai-gap-y-4</span
+            ><span class="util-val">row gap</span>
+          </div>
+
+          <div class="group-label">Grid</div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="grid2"
+            data-css="display: grid; grid-template-columns: repeat(2,1fr)"
+          >
+            <span class="util-name">chai-cols-2</span
+            ><span class="util-val">2-col grid</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="grid"
+            data-css="display: grid; grid-template-columns: repeat(3,1fr)"
+          >
+            <span class="util-name">chai-cols-3</span
+            ><span class="util-val">3-col grid</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="flex"
+            data-dir="grid4"
+            data-css="display: grid; grid-template-columns: repeat(4,1fr)"
+          >
+            <span class="util-name">chai-cols-4</span
+            ><span class="util-val">4-col grid</span>
+          </div>
+
+          <!-- ── Sizing ──────────────────────────────────────────────────────── -->
+          <div class="group-label">Width &amp; Height</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"width":"64px","height":"64px","backgroundColor":"#3b82f6"}'
+            data-css="width: 64px"
+            data-text=""
+          >
+            <span class="util-name">chai-w-16</span
+            ><span class="util-val">64px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"width":"128px","height":"32px","backgroundColor":"#3b82f6"}'
+            data-css="width: 128px"
+            data-text=""
+          >
+            <span class="util-name">chai-w-32</span
+            ><span class="util-val">128px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"width":"100%","height":"32px","backgroundColor":"#3b82f6"}'
+            data-css="width: 100%"
+            data-text="full width"
+          >
+            <span class="util-name">chai-w-full</span
+            ><span class="util-val">100%</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"height":"64px","width":"64px","backgroundColor":"#a855f7"}'
+            data-css="height: 64px"
+            data-text=""
+          >
+            <span class="util-name">chai-h-16</span
+            ><span class="util-val">64px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"height":"128px","width":"64px","backgroundColor":"#a855f7"}'
+            data-css="height: 128px"
+            data-text=""
+          >
+            <span class="util-name">chai-h-32</span
+            ><span class="util-val">128px</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"width":"fit-content","padding":"12px 24px","backgroundColor":"#22c55e","color":"#fff","borderRadius":"6px"}'
+            data-css="width: fit-content"
+            data-text="fit-content"
+          >
+            <span class="util-name">chai-w-fit</span
+            ><span class="util-val">fit-content</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"aspectRatio":"1/1","width":"80px","backgroundColor":"#f97316","borderRadius":"6px"}'
+            data-css="aspect-ratio: 1 / 1"
+            data-text=""
+          >
+            <span class="util-name">chai-aspect-square</span
+            ><span class="util-val">1:1</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"aspectRatio":"16/9","width":"160px","backgroundColor":"#f97316","borderRadius":"6px"}'
+            data-css="aspect-ratio: 16 / 9"
+            data-text=""
+          >
+            <span class="util-name">chai-aspect-video</span
+            ><span class="util-val">16:9</span>
+          </div>
+
+          <!-- ── Position ────────────────────────────────────────────────────── -->
+          <div class="group-label">Position</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"position":"relative","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}'
+            data-css="position: relative"
+            data-text="relative"
+          >
+            <span class="util-name">chai-relative</span
+            ><span class="util-val">relative</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"position":"absolute","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}'
+            data-css="position: absolute"
+            data-text="absolute"
+          >
+            <span class="util-name">chai-absolute</span
+            ><span class="util-val">absolute</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"position":"sticky","border":"1px dashed rgba(255,255,255,0.3)","padding":"20px 32px"}'
+            data-css="position: sticky"
+            data-text="sticky"
+          >
+            <span class="util-name">chai-sticky</span
+            ><span class="util-val">sticky</span>
+          </div>
+
+          <!-- ── Z-Index ─────────────────────────────────────────────────────── -->
+          <div class="group-label">Z-Index</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"0","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}'
+            data-css="z-index: 0"
+            data-text="z-0"
+          >
+            <span class="util-name">chai-z-0</span
+            ><span class="util-val">0</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"10","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}'
+            data-css="z-index: 10"
+            data-text="z-10"
+          >
+            <span class="util-name">chai-z-10</span
+            ><span class="util-val">10</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"50","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #222"}'
+            data-css="z-index: 50"
+            data-text="z-50"
+          >
+            <span class="util-name">chai-z-50</span
+            ><span class="util-val">50</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"100","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #6366f1","color":"#a5b4fc"}'
+            data-css="z-index: 100"
+            data-text="z-modal"
+          >
+            <span class="util-name">chai-z-modal</span
+            ><span class="util-val">100</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"200","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #eab308","color":"#fde047"}'
+            data-css="z-index: 200"
+            data-text="z-toast"
+          >
+            <span class="util-name">chai-z-toast</span
+            ><span class="util-val">200</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"zIndex":"300","backgroundColor":"#111827","padding":"14px 28px","border":"1px solid #ef4444","color":"#fca5a5"}'
+            data-css="z-index: 300"
+            data-text="z-tooltip"
+          >
+            <span class="util-name">chai-z-tooltip</span
+            ><span class="util-val">300</span>
+          </div>
+
+          <!-- ── Overflow ────────────────────────────────────────────────────── -->
+          <div class="group-label">Overflow</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"overflow":"hidden","width":"140px","height":"56px","backgroundColor":"#111","border":"1px solid #222"}'
+            data-css="overflow: hidden"
+            data-text="hidden content here"
+          >
+            <span class="util-name">chai-overflow-hidden</span
+            ><span class="util-val">hidden</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"overflow":"auto","width":"140px","height":"56px","backgroundColor":"#111","border":"1px solid #222"}'
+            data-css="overflow: auto"
+            data-text="scrollable content here that overflows"
+          >
+            <span class="util-name">chai-overflow-auto</span
+            ><span class="util-val">auto</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"overflowX":"hidden","width":"140px","backgroundColor":"#111","border":"1px solid #222","padding":"12px"}'
+            data-css="overflow-x: hidden"
+            data-text="horizontal overflow hidden"
+          >
+            <span class="util-name">chai-overflow-x-hidden</span
+            ><span class="util-val">x hidden</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"overflowY":"auto","height":"56px","width":"140px","backgroundColor":"#111","border":"1px solid #222","padding":"12px"}'
+            data-css="overflow-y: auto"
+            data-text="vertical overflow auto scroll"
+          >
+            <span class="util-name">chai-overflow-y-auto</span
+            ><span class="util-val">y auto</span>
+          </div>
+
+          <!-- ── Transitions ─────────────────────────────────────────────────── -->
+          <div class="group-label">Transitions</div>
+          <div
+            class="util-row"
+            data-type="transition"
+            data-prop="all"
+            data-dur="150"
+            data-css="transition: all 150ms cubic-bezier(0.4,0,0.2,1)"
+          >
+            <span class="util-name">chai-transition</span
+            ><span class="util-val">all 150ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="transition"
+            data-prop="colors"
+            data-dur="300"
+            data-css="transition-property: color, background-color, border-color; transition-duration: 300ms"
+          >
+            <span class="util-name">chai-transition-colors</span
+            ><span class="util-val">colors 300ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="transition"
+            data-prop="opacity"
+            data-dur="300"
+            data-css="transition-property: opacity; transition-duration: 300ms"
+          >
+            <span class="util-name">chai-transition-opacity</span
+            ><span class="util-val">opacity 300ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="transition"
+            data-prop="transform"
+            data-dur="300"
+            data-css="transition-property: transform; transition-duration: 300ms"
+          >
+            <span class="util-name">chai-transition-transform</span
+            ><span class="util-val">transform 300ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionDuration":"75ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-duration: 75ms"
+            data-text="duration-75"
+          >
+            <span class="util-name">chai-duration-75</span
+            ><span class="util-val">75ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionDuration":"300ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-duration: 300ms"
+            data-text="duration-300"
+          >
+            <span class="util-name">chai-duration-300</span
+            ><span class="util-val">300ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionDuration":"700ms","backgroundColor":"#3b82f6","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-duration: 700ms"
+            data-text="duration-700"
+          >
+            <span class="util-name">chai-duration-700</span
+            ><span class="util-val">700ms</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionTimingFunction":"linear","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-timing-function: linear"
+            data-text="ease-linear"
+          >
+            <span class="util-name">chai-ease-linear</span
+            ><span class="util-val">linear</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionTimingFunction":"cubic-bezier(0.4,0,0.2,1)","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-timing-function: cubic-bezier(0.4,0,0.2,1)"
+            data-text="ease-in-out"
+          >
+            <span class="util-name">chai-ease-in-out</span
+            ><span class="util-val">in-out</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transitionTimingFunction":"cubic-bezier(0.34,1.56,0.64,1)","backgroundColor":"#a855f7","color":"#fff","padding":"12px 24px","borderRadius":"6px"}'
+            data-css="transition-timing-function: cubic-bezier(0.34,1.56,0.64,1)"
+            data-text="ease-bounce"
+          >
+            <span class="util-name">chai-ease-bounce</span
+            ><span class="util-val">bounce</span>
+          </div>
+
+          <!-- ── Transform ───────────────────────────────────────────────────── -->
+          <div class="group-label">Transform</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"scale(0.75)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="transform: scale(0.75)"
+            data-text="scale-75"
+          >
+            <span class="util-name">chai-scale-75</span
+            ><span class="util-val">0.75</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"scale(1.1)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="transform: scale(1.1)"
+            data-text="scale-110"
+          >
+            <span class="util-name">chai-scale-110</span
+            ><span class="util-val">1.1</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"scale(1.25)","backgroundColor":"#14b8a6","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="transform: scale(1.25)"
+            data-text="scale-125"
+          >
+            <span class="util-name">chai-scale-125</span
+            ><span class="util-val">1.25</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"rotate(45deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}'
+            data-css="transform: rotate(45deg)"
+            data-text="45°"
+          >
+            <span class="util-name">chai-rotate-45</span
+            ><span class="util-val">45deg</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"rotate(90deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}'
+            data-css="transform: rotate(90deg)"
+            data-text="90°"
+          >
+            <span class="util-name">chai-rotate-90</span
+            ><span class="util-val">90deg</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"rotate(180deg)","backgroundColor":"#f97316","color":"#fff","padding":"16px 28px"}'
+            data-css="transform: rotate(180deg)"
+            data-text="180°"
+          >
+            <span class="util-name">chai-rotate-180</span
+            ><span class="util-val">180deg</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"translateX(24px)","backgroundColor":"#6366f1","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="transform: translateX(24px)"
+            data-text="→ shifted"
+          >
+            <span class="util-name">chai-translate-x-6</span
+            ><span class="util-val">+24px X</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"transform":"translateY(-16px)","backgroundColor":"#6366f1","color":"#fff","padding":"16px 28px","borderRadius":"6px"}'
+            data-css="transform: translateY(-16px)"
+            data-text="↑ shifted"
+          >
+            <span class="util-name">chai-translate-y-4</span
+            ><span class="util-val">-16px Y</span>
+          </div>
+
+          <!-- ── Visibility & Misc ───────────────────────────────────────────── -->
+          <div class="group-label">Visibility &amp; Misc</div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"visibility":"visible","backgroundColor":"#22c55e","color":"#fff","padding":"14px 24px","borderRadius":"6px"}'
+            data-css="visibility: visible"
+            data-text="visible"
+          >
+            <span class="util-name">chai-visible</span
+            ><span class="util-val">visible</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"visibility":"hidden","backgroundColor":"#374151","color":"#fff","padding":"14px 24px","borderRadius":"6px"}'
+            data-css="visibility: hidden"
+            data-text="(hidden)"
+          >
+            <span class="util-name">chai-invisible</span
+            ><span class="util-val">hidden</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"cursor":"pointer","backgroundColor":"#3b82f6","color":"#fff","padding":"14px 24px","borderRadius":"6px"}'
+            data-css="cursor: pointer"
+            data-text="hover me"
+          >
+            <span class="util-name">chai-cursor-pointer</span
+            ><span class="util-val">pointer</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"cursor":"not-allowed","backgroundColor":"#374151","color":"#9ca3af","padding":"14px 24px","borderRadius":"6px"}'
+            data-css="cursor: not-allowed"
+            data-text="disabled"
+          >
+            <span class="util-name">chai-cursor-not-allowed</span
+            ><span class="util-val">not-allowed</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"pointerEvents":"none","backgroundColor":"#374151","color":"#9ca3af","padding":"14px 24px","borderRadius":"6px"}'
+            data-css="pointer-events: none"
+            data-text="no events"
+          >
+            <span class="util-name">chai-pointer-events-none</span
+            ><span class="util-val">none</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"userSelect":"none","backgroundColor":"#111827","color":"#f2f2f0","padding":"14px 24px","border":"1px solid #222"}'
+            data-css="user-select: none"
+            data-text="try to select me"
+          >
+            <span class="util-name">chai-select-none</span
+            ><span class="util-val">no select</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"objectFit":"cover","width":"120px","height":"80px","backgroundColor":"#a855f7","borderRadius":"4px"}'
+            data-css="object-fit: cover"
+            data-text="cover"
+          >
+            <span class="util-name">chai-object-cover</span
+            ><span class="util-val">cover</span>
+          </div>
+          <div
+            class="util-row"
+            data-type="style"
+            data-styles='{"boxSizing":"border-box","width":"120px","padding":"16px","backgroundColor":"#f97316","color":"#fff","borderRadius":"4px","border":"4px solid #c2410c"}'
+            data-css="box-sizing: border-box"
+            data-text="border-box"
+          >
+            <span class="util-name">chai-box-border</span
+            ><span class="util-val">border-box</span>
+          </div>
+        </div>
+
+        <!-- PREVIEW PANE -->
+        <div class="preview-pane">
+          <div class="preview-canvas">
+            <!-- spacing visualiser -->
+            <div id="preview-shell">
+              <div class="shell-outer" id="shell-outer">
+                <div class="shell-inner" id="shell-inner">content</div>
+              </div>
+              <div
+                class="tick"
+                id="tick-top"
+                style="top: -20px; left: 50%; transform: translateX(-50%)"
+              ></div>
+              <div
+                class="tick"
+                id="tick-right"
+                style="right: -46px; top: 50%; transform: translateY(-50%)"
+              ></div>
+              <div
+                class="tick"
+                id="tick-bottom"
+                style="bottom: -20px; left: 50%; transform: translateX(-50%)"
+              ></div>
+              <div
+                class="tick"
+                id="tick-left"
+                style="left: -46px; top: 50%; transform: translateY(-50%)"
+              ></div>
+            </div>
+            <!-- generic preview -->
+            <div id="preview-inner">Hover a utility</div>
+          </div>
+
+          <div class="preview-output">
+            <div class="output-label">Computed CSS</div>
+            <div id="css-output">
+              <span class="css-hint">← hover any class on the left</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <div class="foot-logo">☕ Tailwin <span class="slope-font">DT89</span></div>
-  <div class="foot-links">
-    <a href="https://github.com/KARDT89/chai-tailwind" target="_blank">GitHub</a>
-    <a href="https://kardt89.github.io/chai-tailwind/" target="_blank">Demo</a>
-    <a href="#how">Docs</a>
-  </div>
-  <div class="foot-copy">Web Dev Cohort 2026</div>
-</footer>
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="section-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">How it works</h2>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-n">01</div>
+          <div class="flow-badge">index.html</div>
+          <div class="flow-title">Browser loads the page</div>
+          <div class="flow-body">
+            A single <code>&lt;script type="module"&gt;</code> tag. The
+            browser's native ES module support handles all imports — no bundler,
+            no npm, no build step.
+          </div>
+          <span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step">
+          <div class="flow-n">02</div>
+          <div class="flow-badge">main.js</div>
+          <div class="flow-title">Engine initialises</div>
+          <div class="flow-body">
+            Waits for <code>DOMContentLoaded</code>, then calls
+            <code>scanDOM()</code> for existing elements and
+            <code>watchDOM()</code> for anything added later.
+          </div>
+          <span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step">
+          <div class="flow-n">03</div>
+          <div class="flow-badge">engine.js</div>
+          <div class="flow-title">DOM is scanned</div>
+          <div class="flow-body">
+            <code>querySelectorAll('[class*="chai-"]')</code> finds every
+            element. A <code>MutationObserver</code> keeps watching for new
+            nodes at runtime.
+          </div>
+          <span class="flow-arrow">→</span>
+        </div>
+        <div class="flow-step">
+          <div class="flow-n">04</div>
+          <div class="flow-badge">rules.js + config.js</div>
+          <div class="flow-title">Class becomes style</div>
+          <div class="flow-body">
+            <code>parseClass("bg-blue-500")</code> returns
+            <code>{ backgroundColor: "#3b82f6" }</code>.
+            <code>Object.assign(el.style, styles)</code> writes it to the DOM
+            element.
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-const rows       = document.querySelectorAll('.util-row');
-const shell      = document.getElementById('preview-shell');
-const shellOuter = document.getElementById('shell-outer');
-const inner      = document.getElementById('preview-inner');
-const cssOut     = document.getElementById('css-output');
-const tTop       = document.getElementById('tick-top');
-const tRight     = document.getElementById('tick-right');
-const tBottom    = document.getElementById('tick-bottom');
-const tLeft      = document.getElementById('tick-left');
+    <!-- INSTALL -->
+    <section id="install">
+      <div class="section-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Get started</h2>
+      </div>
+      <div class="install-grid">
+        <div class="install-left">
+          <div class="step">
+            <div class="step-n">1</div>
+            <div class="step-body">
+              <div class="step-title">CDN — jsDelivr</div>
+              <div class="step-code">
+                &lt;script type="module"
+                src="https://cdn.jsdelivr.net/gh/KARDT89/chai-tailwind@latest/src/main.js"&gt;&lt;/script&gt;
+              </div>
+              <div class="step-note">
+                drop it in your &lt;head&gt; — no build step, no setup
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-n">2</div>
+            <div class="step-body">
+              <div class="step-title">Clone the repo</div>
+              <div class="step-code">
+                git clone https://github.com/KARDT89/chai-tailwind
+              </div>
+              <div class="step-note">or download the ZIP from GitHub</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-n">3</div>
+            <div class="step-body">
+              <div class="step-title">Write classes, done</div>
+              <div class="step-code">
+                &lt;div class="chai-flex chai-p-4 chai-bg-blue-500"&gt;
+              </div>
+              <div class="step-note">no config, no compilation, no setup</div>
+            </div>
+          </div>
+        </div>
 
-function resetTicks() { [tTop,tRight,tBottom,tLeft].forEach(t => t.textContent = ''); }
+        <div class="install-right">
+          <div
+            style="
+              font-size: 10px;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              opacity: 0.2;
+              margin-bottom: 20px;
+            "
+          >
+            Project structure
+          </div>
+          <div class="file-tree">
+            <div style="opacity: 0.2">chai-tailwind/</div>
+            <div>
+              &nbsp;&nbsp;├── <span class="file">index.html</span>
+              <span class="note">← your HTML page</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;├── <span class="file">main.js</span>
+              <span class="note">← entry point (8 lines)</span>
+            </div>
+            <div>&nbsp;&nbsp;└── src/</div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──
+              <span class="file">config.js</span>
+              <span class="note">← colors, spacing, sizes</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──
+              <span class="file">rules.js</span>
+              <span class="note">← parseClass() pure fn</span>
+            </div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──
+              <span class="file">engine.js</span>
+              <span class="note">← DOM scan + observe</span>
+            </div>
+          </div>
+          <div class="ctas">
+            <a
+              class="btn-p"
+              href="https://kardt89.github.io/chai-tailwind/"
+              target="_blank"
+              >Live demo →</a
+            >
+            <a
+              class="btn-s"
+              href="https://github.com/KARDT89/chai-tailwind"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-function showSpacing(px, axis) {
-  shell.style.display = 'block';
-  inner.style.display = 'none';
-  resetTicks();
-  shellOuter.style.padding = '0';
-
-  const v = px + 'px';
-  if (axis === 'all') {
-    shellOuter.style.padding = v;
-    tTop.textContent = v; tRight.textContent = v;
-    tBottom.textContent = v; tLeft.textContent = v;
-  } else if (axis === 'x') {
-    shellOuter.style.padding = `12px ${v}`;
-    tRight.textContent = v; tLeft.textContent = v;
-  } else if (axis === 'y') {
-    shellOuter.style.padding = `${v} 12px`;
-    tTop.textContent = v; tBottom.textContent = v;
-  } else if (axis === 't') {
-    shellOuter.style.padding = `${v} 12px 4px`;
-    tTop.textContent = v;
-  } else if (axis === 'b') {
-    shellOuter.style.padding = `4px 12px ${v}`;
-    tBottom.textContent = v;
-  } else if (axis === 'l') {
-    shellOuter.style.padding = `12px 12px 12px ${v}`;
-    tLeft.textContent = v;
-  } else if (axis === 'r') {
-    shellOuter.style.padding = `12px ${v} 12px 12px`;
-    tRight.textContent = v;
-  }
-}
-
-function showMargin(px, axis) {
-  shell.style.display = 'block';
-  inner.style.display = 'none';
-  resetTicks();
-  shellOuter.style.padding = '12px';
-  // For margin we reuse the outer shell padding visually — just show ticks
-  const v = px + 'px';
-  shellOuter.style.border = '1px dashed rgba(255,200,100,0.35)';
-  if (axis === 'all')  { tTop.textContent = v; tRight.textContent = v; tBottom.textContent = v; tLeft.textContent = v; }
-  else if (axis === 'x') { tRight.textContent = v; tLeft.textContent = v; }
-  else if (axis === 'y') { tTop.textContent = v; tBottom.textContent = v; }
-  else if (axis === 't') { tTop.textContent = v; }
-  else if (axis === 'b') { tBottom.textContent = v; }
-}
-
-function showStyle(stylesObj, text) {
-  shell.style.display = 'none';
-  shellOuter.style.border = '1px dashed rgba(255,255,255,0.15)';
-  inner.style.display = 'flex';
-  inner.style.cssText = `
-    font-family: var(--mono); font-size: 13px; color: #f2f2f0;
-    display: flex; align-items: center; justify-content: center;
-    min-width: 48px; min-height: 32px; transition: all 0.22s ease;
-  `;
-  Object.assign(inner.style, stylesObj);
-  inner.textContent = text || 'preview';
-}
-
-function showFlex(dir) {
-  shell.style.display = 'none';
-  shellOuter.style.border = '1px dashed rgba(255,255,255,0.15)';
-  inner.style.cssText = `
-    font-family: var(--mono); font-size: 11px; color: #f2f2f0;
-    border: 1px solid #1e1e1e; padding: 16px; transition: all 0.22s ease;
-  `;
-  inner.innerHTML = '';
-
-  const mkItem = (label) => {
-    const c = document.createElement('div');
-    c.style.cssText = 'background:rgba(255,255,255,0.1);padding:8px 14px;border-radius:2px;white-space:nowrap;';
-    c.textContent = label;
-    return c;
-  };
-
-  const mkBox = (label) => {
-    const c = document.createElement('div');
-    c.style.cssText = 'background:rgba(255,255,255,0.1);padding:12px;text-align:center;font-size:11px;';
-    c.textContent = label;
-    return c;
-  };
-
-  if (dir === 'row') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', gap:'10px', alignItems:'center', width:'280px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'col') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'column', gap:'8px', alignItems:'flex-start' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'row-rev') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row-reverse', gap:'10px', alignItems:'center', width:'280px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'col-rev') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'column-reverse', gap:'8px', alignItems:'flex-start' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'wrap') {
-    Object.assign(inner.style, { display:'flex', flexWrap:'wrap', gap:'8px', width:'200px' });
-    ['one','two','three','four','five'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'center') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', gap:'10px', alignItems:'center', justifyContent:'center', width:'280px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'start') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', gap:'10px', alignItems:'flex-start', width:'280px', height:'80px' });
-    ['tall','mid','short'].forEach((l,i) => { const c = mkItem(l); c.style.height = [56,38,28][i]+'px'; inner.appendChild(c); });
-  } else if (dir === 'end') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', gap:'10px', alignItems:'flex-end', width:'280px', height:'80px' });
-    ['tall','mid','short'].forEach((l,i) => { const c = mkItem(l); c.style.height = [56,38,28][i]+'px'; inner.appendChild(c); });
-  } else if (dir === 'between') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-between', width:'300px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'around') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-around', width:'300px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'evenly') {
-    Object.assign(inner.style, { display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', width:'300px' });
-    ['one','two','three'].forEach(l => inner.appendChild(mkItem(l)));
-  } else if (dir === 'grid') {
-    inner.style.border = 'none';
-    Object.assign(inner.style, { display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'8px', width:'240px' });
-    ['A','B','C','D','E','F'].forEach(l => inner.appendChild(mkBox(l)));
-  } else if (dir === 'grid2') {
-    inner.style.border = 'none';
-    Object.assign(inner.style, { display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:'8px', width:'220px' });
-    ['A','B','C','D'].forEach(l => inner.appendChild(mkBox(l)));
-  } else if (dir === 'grid4') {
-    inner.style.border = 'none';
-    Object.assign(inner.style, { display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'8px', width:'280px' });
-    ['A','B','C','D','E','F','G','H'].forEach(l => inner.appendChild(mkBox(l)));
-  }
-}
-
-function showFlexGap(gapPx, dir) {
-  shell.style.display = 'none';
-  shellOuter.style.border = '1px dashed rgba(255,255,255,0.15)';
-  inner.style.cssText = `
-    font-family: var(--mono); font-size: 11px; color: #f2f2f0;
-    border: 1px solid #1e1e1e; padding: 16px; transition: all 0.22s ease;
-    display: flex; flex-direction: row; align-items: center; width: 280px; flex-wrap: wrap;
-  `;
-  inner.innerHTML = '';
-
-  if (dir === 'y') {
-    inner.style.flexDirection = 'column';
-    inner.style.rowGap = gapPx + 'px';
-    inner.style.width = 'auto';
-    inner.style.alignItems = 'flex-start';
-  } else if (dir === 'x') {
-    inner.style.columnGap = gapPx + 'px';
-  } else {
-    inner.style.gap = gapPx + 'px';
-  }
-
-  ['item A','item B','item C'].forEach(l => {
-    const c = document.createElement('div');
-    c.style.cssText = 'background:rgba(255,255,255,0.1);padding:8px 14px;border-radius:2px;';
-    c.textContent = l;
-    inner.appendChild(c);
-  });
-
-  // draw gap indicator lines
-  setTimeout(() => {
-    const items = inner.querySelectorAll('div');
-    items.forEach((el, i) => {
-      if (i < items.length - 1) {
-        const line = document.createElement('div');
-        line.style.cssText = `
-          background: rgba(255,200,100,0.25); border: 1px dashed rgba(255,200,100,0.4);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 9px; color: rgba(255,200,100,0.8);
-          ${dir === 'y' ? `width:60px;height:${gapPx}px;` : `width:${gapPx}px;height:30px;`}
-        `;
-        line.textContent = gapPx + 'px';
-        el.after(line);
-      }
-    });
-  }, 0);
-}
-
-function showTransition(prop, dur) {
-  shell.style.display = 'none';
-  shellOuter.style.border = '1px dashed rgba(255,255,255,0.15)';
-  inner.innerHTML = '';
-  inner.style.cssText = `
-    font-family: var(--mono); font-size: 12px; color: #f2f2f0;
-    display: flex; flex-direction: column; align-items: center; gap: 12px;
-  `;
-
-  const label = document.createElement('div');
-  label.style.cssText = 'font-size:10px;opacity:0.4;letter-spacing:0.1em;';
-  label.textContent = `hover the box → ${prop} ${dur}ms`;
-  inner.appendChild(label);
-
-  const box = document.createElement('div');
-  box.style.cssText = `
-    width: 80px; height: 80px; background: #3b82f6; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; cursor: crosshair;
-    transition: ${prop === 'colors' ? 'background-color' : prop === 'all' ? 'all' : prop} ${dur}ms cubic-bezier(0.4,0,0.2,1);
-  `;
-  box.textContent = 'hover';
-  box.addEventListener('mouseenter', () => {
-    if (prop === 'colors' || prop === 'all')  box.style.backgroundColor = '#ef4444';
-    if (prop === 'opacity' || prop === 'all') box.style.opacity = '0.2';
-    if (prop === 'transform' || prop === 'all') box.style.transform = 'scale(1.3) rotate(15deg)';
-  });
-  box.addEventListener('mouseleave', () => {
-    box.style.backgroundColor = '#3b82f6';
-    box.style.opacity = '1';
-    box.style.transform = 'none';
-  });
-  inner.appendChild(box);
-}
-
-function renderCSS(raw) {
-  return raw.split(';').map(s => s.trim()).filter(Boolean).map(d => {
-    const i = d.indexOf(':');
-    return `<span class="css-p">${d.slice(0,i).trim()}</span><span class="css-c">: </span><span class="css-v">${d.slice(i+1).trim()}</span><span class="css-s">;</span>`;
-  }).join('<br>');
-}
-
-rows.forEach(row => {
-  row.addEventListener('mouseenter', () => {
-    rows.forEach(r => r.classList.remove('active'));
-    row.classList.add('active');
-    shellOuter.style.border = '1px dashed rgba(255,255,255,0.15)';
-
-    const type = row.dataset.type;
-    const css  = row.dataset.css;
-
-    if (type === 'spacing') {
-      showSpacing(parseInt(row.dataset.px), row.dataset.axis);
-    } else if (type === 'margin') {
-      showMargin(parseInt(row.dataset.px), row.dataset.axis);
-    } else if (type === 'style') {
-      const styles = JSON.parse(row.dataset.styles);
-      const text   = row.dataset.text !== undefined ? row.dataset.text : row.querySelector('.util-name').textContent;
-      showStyle(styles, text);
-    } else if (type === 'flex') {
-      showFlex(row.dataset.dir);
-    } else if (type === 'flex-gap') {
-      showFlexGap(parseInt(row.dataset.gap), row.dataset.dir);
-    } else if (type === 'transition') {
-      showTransition(row.dataset.prop, row.dataset.dur);
-    }
-
-    cssOut.innerHTML = renderCSS(css);
-  });
-});
-</script>
-</body>
+    <footer>
+      <div class="foot-logo">
+        ☕ Tailwin <span class="slope-font">DT89</span>
+      </div>
+      <div class="foot-links">
+        <a href="https://github.com/KARDT89/chai-tailwind" target="_blank"
+          >GitHub</a
+        >
+        <a href="https://kardt89.github.io/chai-tailwind/" target="_blank"
+          >Demo</a
+        >
+        <a href="#how">Docs</a>
+      </div>
+      <div class="foot-copy">Web Dev Cohort 2026</div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>

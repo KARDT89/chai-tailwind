@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup main.js --file dist/chai-tailwind.min.js --format iife --name ChaiTailwind"
+    "build": "rollup main.js --file dist/chai-tailwind.min.js --format iife --name ChaiTailwind",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
